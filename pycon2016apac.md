@@ -19,7 +19,7 @@ tags: [events]
 * 첨부 파일: `player.py` 또는 `player.py`를 포함하는 `player.zip`
 * 신청 마감: 파이콘 2016 APAC 행사 당일(8월13일/14일) **오후 2시**
 * 참가 인원: 선착순 **100명**
-* 신청 마감: 파이콘 2016 APAC 행사 당일(8월13일/14일) **오후 4시**(카카오 부스에서 경품 받아가세요!)
+* 결과 발표: 파이콘 2016 APAC 행사 당일(8월13일/14일) **오후 4시**(카카오 부스에서 경품 받아가세요!)
 
 > <img src="http://item.kakaocdn.net/do/-26p06+UqCd0OAgiRHNZwHaq4FJCveCBKCNZV-bZscw_/477c52636630bc15b2890bde099cba0a1667fc7b08261b4c493670baa83d5cb9" class="pull-right" />
 > **21세기에 왠 메일?**
