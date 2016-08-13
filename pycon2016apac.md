@@ -19,6 +19,7 @@ tags: [events]
 * 첨부 파일: `player.py` 또는 `player.py`를 포함하는 `player.zip`
 * 신청 마감: 파이콘 2016 APAC 행사 당일(8월13일/14일) **오후 2시**
 * 참가 인원: 선착순 **100명**
+* 신청 마감: 파이콘 2016 APAC 행사 당일(8월13일/14일) **오후 4시**(카카오 부스에서 경품 받아가세요!)
 
 ## 게임 규칙
 
@@ -59,12 +60,14 @@ from random import choice
 
 def show_me_the_hand(records):
     # 상대방이 지금까지 뭘 냈던 랜덤으로 선택
-    return choice(['gawi', 'bawi', 'bo')
+    return choice(['gawi', 'bawi', 'bo'])
 ```
 
 * 예제2: 최초 한번은 **랜덤**으로, 이후부터는 상대방이 낸 걸 **따라**내는 플레이어
 
 ```python
+from random import choice
+
 def show_me_the_hand(records):
     # 최초 한번은 랜덤...
     if len(records) == 0:
@@ -92,8 +95,8 @@ import player2
 r1 = []
 r2 = []
 for i in range(1000)
-    h1 = player1.show_me_your_hand(r2)
-    h2 = player2.show_me_your_hand(r1)
+    h1 = player1.show_me_the_hand(r2)
+    h2 = player2.show_me_the_hand(r1)
     if h1 == h2:
         print 'match %d of 1000: tie' % i
         r = 0
