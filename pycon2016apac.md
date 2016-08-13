@@ -115,8 +115,8 @@ for i in range(1000):
     else:
         print('match %d of 1000: p2 win' % i)
         r = -1
-    r1 += (h1, r)
-    r2 += (h2, -r)
+    r1.append((h1, r))
+    r2.append((h2, -r))
     # blah blah ...
 ```
 
