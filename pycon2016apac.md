@@ -5,6 +5,8 @@ image: /files/covers/python-in-ex-machina.jpg
 permalink: /pycon2016apac/
 tags: [events]
 ---
+## 8/13 결과
+ * 지금 카카오부스에서 진행중입니다.
 
 ## 참가 자격
 
@@ -120,6 +122,6 @@ for i in range(1000):
     # blah blah ...
 ```
 
-> 이 페이지는 지속적으로 업데이트 됩니다. 
+> 이 페이지는 지속적으로 업데이트 됩니다.
 >
 > 더 자세한 내용은, 행사장 카카오 부스에서 **iolo.fitzowen**을 찾아주세요. ;)
