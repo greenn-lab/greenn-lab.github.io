@@ -6,9 +6,9 @@ permalink: /pycon2016apac/
 tags: [events]
 ---
 ## 8/13 결과
- * 1등 : k239507@gmail
- * 2등 : hulk@bapul
- * 3,4등 : eclipse1725@gmail, hahanbyul@gmail
+ * 1등 : k2395**@gmail
+ * 2등 : hu**@bapul
+ * 3,4등 : eclipse17**@gmail, hahanby**@gmail
 
 **!! 8/14일은 게임 규칙이 변경됩니다.(random 불가)**
 
