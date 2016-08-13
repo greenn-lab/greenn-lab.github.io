@@ -46,10 +46,11 @@ tags: [events]
 1. 가위(`gawi`), 바위(`bawi`), 보(`bo`) 중의 하나를 리턴하는
 1. 함수 `show_me_the_hand`를 작성하세요.
 
-* 경기기록 ::= [ (가위바위보, 승무패), ...]
-* 가위바위보 ::= 'gawi' | 'bawi' | 'bo' (`gawi`=가위, `bawi`=바위, `bo`=보)
-* 승무패 ::= 1 | 0 | -1 (1=승리, 0=무승, -1=패배)
-
+```
+경기기록 ::= [ (가위바위보, 승무패), ...]
+가위바위보 ::= 'gawi' | 'bawi' | 'bo' (`gawi`=가위, `bawi`=바위, `bo`=보)
+승무패 ::= 1 | 0 | -1 (1=승리, 0=무승, -1=패배)
+```
 
 * 예제1: 가위, 바위, 보를 **랜덤**으로 내는 플레이어
 
@@ -82,6 +83,31 @@ def show_me_the_hand(records):
     return 'bawi'
 ```
 
-> 이 페이지는 지속적으로로 업데이트 됩니다. 
+* 테스트 방법(pseudo code):
+
+```python
+import player1
+import player2
+
+r1 = []
+r2 = []
+for i in range(1000)
+    h1 = player1.show_me_your_hand(r2)
+    h2 = player2.show_me_your_hand(r1)
+    if h1 == h2:
+        print 'match %d of 1000: tie' % i
+        r = 0
+    elif (h1 == 'gawi' and h2 == 'bo') or (h1 == 'bawi' and h2 == 'gawi') or (h1 == 'bo' and h2 == 'bawi'):
+        print 'match %d of 1000: p1 win' % i
+        r = 1
+    else:
+        print 'match %d of 1000: p2 win' % i
+        r = -1
+    r1 += (h1, r)
+    r2 += (h2, -r)
+    # blah blah ...
+```
+
+> 이 페이지는 지속적으로 업데이트 됩니다. 
 >
 > 더 자세한 내용은, 행사장 카카오 부스에서 **iolo.fitzowen**을 찾아주세요. ;)
