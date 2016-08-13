@@ -6,7 +6,11 @@ permalink: /pycon2016apac/
 tags: [events]
 ---
 ## 8/13 결과
- * 지금 카카오부스에서 진행중입니다.
+ * 1등 : k239507@gmail
+ * 2등 : hulk@bapul
+ * 3,4등 : eclipse1725@gmail, hahanbyul@gmail
+
+**!! 8/14일은 게임 규칙이 변경됩니다.**
 
 ## 참가 자격
 
