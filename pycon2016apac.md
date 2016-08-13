@@ -46,14 +46,42 @@ tags: [events]
 1. 가위(`gawi`), 바위(`bawi`), 보(`bo`) 중의 하나를 리턴하는
 1. 함수 `show_me_the_hand`를 작성하세요.
 
-* 예제: 가위, 바위, 보를 랜덤으로 내는 플레이어
+* 경기기록 ::= [ (가위바위보, 승무패), ...]
+* 가위바위보 ::= 'gawi' | 'bawi' | 'bo' (`gawi`=가위, `bawi`=바위, `bo`=보)
+* 승무패 ::= 1 | 0 | -1 (1=승리, 0=무승, -1=패배)
+
+
+* 예제1: 가위, 바위, 보를 **랜덤**으로 내는 플레이어
 
 ```python
 from random import choice
 
 def show_me_the_hand(records):
-  # 상대방이 지금까지 뭘 냈던 랜덤으로 선택
-  return choice(['gawi', 'bawi', 'bo')
+    # 상대방이 지금까지 뭘 냈던 랜덤으로 선택
+    return choice(['gawi', 'bawi', 'bo')
 ```
 
+* 예제2: 최초 한번은 **랜덤**으로, 이후부터는 상대방이 낸 걸 **따라**내는 플레이어
+
+```python
+def show_me_the_hand(records):
+    # 최초 한번은 랜덤...
+    if len(records) == 0:
+        return choice(['gawi', 'bawi', 'bo'])
+    # 이후에는 상대방이 낸 걸 따라내는 플레이어
+    return records[0][0]
+```
+
+* 예제3: 항상 `주먹`만 내는 플레이어
+
+```python
+from random import choice
+
+def show_me_the_hand(records):
+    # 나는 주먹만 내!!!
+    return 'bawi'
+```
+
+> 이 페이지는 지속적으로로 업데이트 됩니다. 
+>
 > 더 자세한 내용은, 행사장 카카오 부스에서 **iolo.fitzowen**을 찾아주세요. ;)
