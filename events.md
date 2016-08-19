@@ -14,6 +14,11 @@ tags: [events]
 * 장소: 강남구 코엑스 전시장
 * 주최: 파이콘 한국 준비 위원회
 
+> __[후원 후기]__
+>
+> * [CODING BATTLE 가위바위보! - 못다한 이야기](http://tech.kakao.com/2016/08/19/gawibawibo/)
+> * [CODING BATTLE 가위바위보 이벤트 페이지](http://tech.kakao.com/pycon2016apac)
+
 ## [후원] RT:FM 나는 프로그래머다
 
 * [http://onoffmix.com/event/55258](http://onoffmix.com/event/55258)
@@ -22,7 +27,7 @@ tags: [events]
 * 주최: 한빛미디어, 나는 프로그래머다
 
 ## [후원] 우리가 데이터를 쓰는 법(How We Use Data)
-    
+
 * 주최: [고넥터(Gonnector)](http://www.gonnector.com)
 * 일정: 2016년 04월 12일
 * 장소: 역삼동 MARU180
@@ -38,7 +43,7 @@ tags: [events]
 * 일시: 2014년 5월 10일(토)
 * 장소: 다음커뮤니케이션 한남오피스 5F
 * 내용: 주요 API 및 모바일 SDK 소개 및 실습(센서, 음성인식/로그인, OAuth 2.0 ...)
-    
+
 ## [후원] Firefox 개발자 콘퍼런스 2014
 
 * [http://www.mozilla.or.kr/devcon/2014/](http://www.mozilla.or.kr/devcon/2014/)
@@ -55,7 +60,7 @@ tags: [events]
 
 * 일시: 2014년 3월 27일(목) ~ 28일(금)
 * 장소: 부산 동서대학교 센텀캠퍼스 소향씨어터
-    
+
 ## [주최] Devday 15th
 
 * 일시: 2014년 2월 28 ~ 29일
@@ -79,4 +84,3 @@ tags: [events]
 
 ---
 문의: [opensource@kakaocorp.com](mailto:opensource@kakaocorp.com)
-
