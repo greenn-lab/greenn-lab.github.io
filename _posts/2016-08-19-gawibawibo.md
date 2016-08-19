@@ -647,7 +647,7 @@ def show_me_the_hand(전적):
             return 'bawi'
 ```
 
-#### 연산자 오버로딩을 이용한 어뷰징 by asciineo &amp; marnitto
+#### 연산자 오버로딩을 이용한 어뷰징 by 아무개
 
 `==` 연산자를 오버로딩해서 상대의 손을 확인하고,
 `__str__`(문자열 형변환) 연산자를 오버로딩해서 항상 이기는 손을 내는 **객체를 리턴**하는 어뷰징(?)입니다.
@@ -691,7 +691,7 @@ def show_me_the_hand(records):
     return Gawibawibo(True)
 ```
 
-#### 모듈/함수 바꿔치기 by tjkj555
+#### 모듈/함수 바꿔치기 by 아무개
 
 파이썬 모듈 로더를 활용해서,
 로딩된 모듈 중에 `show_me_the_hand` 함수가 있으면 항상 `bo`만 내는 함수로 바꿔치기 합니다.
@@ -746,7 +746,7 @@ sticky_note = 'suckzoo_fantastic_rsp_sticky_note'
 leave_sticky_note()
 ```
 
-#### 모듈 사전 로딩 & 학습 by comfuture
+#### 모듈 사전 로딩 & 학습 by 아무개
 
 현재 디렉토리의 모든 모듈을 `.py` 파일을 미리 로딩해서 각각 1000번의 결과를 학습하고,
 학습된 결과에 기반해 자신의 손을 결정하는 방식입니다.
