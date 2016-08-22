@@ -485,11 +485,11 @@ def show_me_the_hand(records):
 
 본선 토너먼트에 오른 64명 중에서 승률 TOP 5을 보면:
 
-1. chang12_snu(71%)
-1. blacksangi_gmail(66%)
-1. etaehyun4_gmail(66%)
-1. novelview9_gmail(62%)
-1. bage79_gmail(62%)
+1. chang12(71%)
+1. blacksangi(66%)
+1. etaehyun4(66%)
+1. novelview9(62%)
+1. bage79(62%)
 
 가위바위보처럼 운에 의존하는 게임에서 60% 이상의 승률을 보였다는 것이 놀랍네요.
 이 분들은 대진운이 안좋았거나 카운터 전략을 만났을 뿐... 너무 서운해 하지 않으셨으면... 
