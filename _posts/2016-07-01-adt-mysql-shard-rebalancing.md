@@ -81,6 +81,7 @@ image: /files/covers/shard.jpg
 ### 2. TableCrawlHandler 구현
 
 다음과 같이 handler interface 구현체를 만듭니다.
+
 ```java
 import com.kakao.adt.handler.MysqlCrawlProcessorHandler;
 import com.kakao.adt.mysql.crawler.MysqlCrawlData;
@@ -93,11 +94,11 @@ public class TableCrawlHandler implements MysqlCrawlProcessorHandler {
     }
 
     /* 기타 constructor, method, field 등등 생략 */
-
 }
 ```
 
 그리고 크롤링한 각 데이터를 `INSERT IGNORE`를 이용하여 target DB에 복사합니다.
+
 ```java
 public void processData(MysqlCrawlData data) throws Exception {
     final List<List<Object>> rowList = data.getAllRows();
@@ -212,15 +213,18 @@ public int getShardIndex(Table table, List<Object> row){
 보통 binary log를 이용하여 복구를 할 때 각 이벤트 별로 다음과 같이 DML을 사용할 것입니다.
 
 * WRITE_EVENT
+
 ```sql
 INSERT INTO ... SET @1=[after[1]], @2=[after[2]], ...;
 ```
 * UPDATE_EVENT
+
 ```sql
 UPDATE ... SET @1=[after[1]], ... WHERE pk=[before.pk];
 ```
 
 * DELETE_EVENT
+
 ```sql
 DELETE FROM ... WHERE pk=[before.pk]
 ```
@@ -254,10 +258,12 @@ REPLACE INTO ... SET @1=[after[1]], @2=[after[2]], ...;
 ```
 
 * `UPDATE_EVENT`
+
 ```sql
 # Normal Query
 UPDATE ... SET @1=[after[1]], ... WHERE pk=[before.pk];
 ```
+
 ```sql
 # Unrolling: 삭제 후 삽입
 DELETE FROM ... WHERE pk=[before.pk];
@@ -277,6 +283,7 @@ REPLACE INTO ... SET @1=[after[1]], @2=[after[2]], ...;
 ```
 
 * `DELETE_EVENT`
+
 ```sql
 # DELETE 이벤트는 변화 없음
 DELETE FROM ... WHERE pk=[before.pk]
