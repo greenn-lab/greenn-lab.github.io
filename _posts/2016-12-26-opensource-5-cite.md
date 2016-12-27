@@ -1,10 +1,16 @@
 ---
 layout: post
-title: 'Cite: Kubernetes CI/CD'
+title: 'kakao의 오픈소스 Ep5 - Cite'
 author: niko.bellic
 date: 2016-12-26 17:00
-tags: [cite,kubernetes,github]
+tags: [cite,kubernetes,github,docker,container,microservice]
 ---
+<a id="forkme" href="https://github.com/kakao/cite"></a>
+
+> "카카오의 오픈소스를 소개합니다" 다섯번째는 [niko.bellic](https://github.com/code0x9)이 개발한 **Cite**입니다.
+
+> 위에 추가하지 모
+
 
 ## Introduction
 
@@ -74,4 +80,9 @@ skraper는 카카오톡, 스토리 등 서비스에서 URL을 입력받고 해�
 
 ## Reference
 
-* Cite Documentation : [http://tech.kakao.com/docs-cite/](http://tech.kakao.com/docs-cite/)
+* GitHub Enterprise API : [https://developer.github.com/enterprise/2.8/v3/](https://developer.github.com/enterprise/2.8/v3/)
+* Kubernetes Documents : [http://kubernetes.io/docs/](http://kubernetes.io/docs/)
+* Docker Documents : [https://docs.docker.com/](https://docs.docker.com/)
+
+## See also
+* Cite Documents : [http://tech.kakao.com/docs-cite/](http://tech.kakao.com/docs-cite/)
