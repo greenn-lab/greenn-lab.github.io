@@ -8,7 +8,7 @@ image: /files/covers/swiss-army-knife.jpg
 ---
 <a id="forkme" href="https://github.com/kakao/adt"></a>
 
-> "카카오의 오픈소스를 소개합니다" 두번째는 [gordon.hahn]()과 동료들이 개발한 **ADT - Almighty Data Trasmitter**입니다.
+> "카카오의 오픈소스를 소개합니다" 다섯번째는 [gordon.hahn]()과 동료들이 개발한 **ADT - Almighty Data Trasmitter**입니다.
 >
 > [ADT](https://github.com/kakao/adt)는 샤드 구성이나 사딩 규칙이 바뀔 때 샤드를 재분배하는 용도로 만들기 시작했지만, MySQL에서 데이터를 수집하여 다른 MySQL로 데이터를 전송하는 - [CDC](https://en.wikipedia.org/wiki/Change_data_capture)와 [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load)이 결합된 - 만능 데이터 전송 도구로 변모하고 있습니다.
 >

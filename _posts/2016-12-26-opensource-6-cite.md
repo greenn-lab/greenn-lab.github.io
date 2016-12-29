@@ -1,20 +1,21 @@
 ---
 layout: post
-title: 'kakao의 오픈소스 Ep5 - Cite'
+title: 'kakao의 오픈소스 Ep6 - Cite'
 author: niko.bellic
 date: 2016-12-26 17:00
 tags: [cite,kubernetes,github,docker,container,microservice]
 ---
 <a id="forkme" href="https://github.com/kakao/cite"></a>
 
-> "카카오의 오픈소스를 소개합니다" 다섯번째는 [niko.bellic](https://github.com/code0x9)이 개발한 **Cite**입니다.
-
-> 위에 추가하지 모
+> "카카오의 오픈소스를 소개합니다" 여섯번째는 [niko.bellic](https://github.com/code0x9)이 개발한 **Cite**입니다.
+>
+> [Cite](https://github.com/kakao/cite)는 Container as a Service(CaaS)로서 소스코드를 빌드하고 배포하며 운영하는 일련의 과정을 자동화하는 웹 서비스입니다.
 
 
 ## Introduction
 
-Cite는 Container as a Service(CaaS)로서 소스코드를 빌드하고 배포하며 운영하는 일련의 과정을 자동화하는 웹 서비스입니다.
+
+[Cite](https://github.com/kakao/cite)는 google kubernetes기반 CaaS(Container as a Service)입니다. 
 
 Kubernetes는 최근 Container Orchestrator로 각광받고 있지만 설치와 운영이 복잡하기 때문에 익혀서 사용하기 위해서는 많은 시간과 노력을 필요로 합니다.
 
@@ -22,6 +23,15 @@ Kubernetes는 최근 Container Orchestrator로 각광받고 있지만 설치와 
 
 Cite는 이러한 어려움을 줄이기 위해 Kubernetes Cluster를 사전에 생성하고 실제 서비스 담당 개발자가 Kubernetes Cluster로 서비스 배포/롤백 등을 할 수 있도록 Kubernetes와 GitHub을 연동하였습니다.
 
+## Why Cite?
+
+ * Fast IT
+   * 더 빠르게 서비스를 생성/배포/롤백합니다. 가능한 모든 부분을 자동화!
+   * 빠르게 확장(horizontal/vertical scaling)할 수 있습니다.
+ * Efficient IT
+   * 더 적은 하드웨어로 더 많은 서비스를 수행합니다.
+   * 서비스 개발자와 SE의 인프라 관리 비용을 줄입니다.
+ 
 ## Workflow
 
 Cite에서의 서비스 배포는 아래의 흐름을 따릅니다.
