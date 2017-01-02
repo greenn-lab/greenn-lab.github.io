@@ -9,6 +9,12 @@ tags: [opensource,s2graph,mrte,hbase-tools,hbase-region-inspector,adt,daum-edito
 ---
 <a id="forkme" href="https://github.com/kakao"></a>
 
+## Cite
+
+* Continuous Deployment using Kubernetes and GitHub
+* [https://github.com/kakao/cite](https://github.com/kakao/cite)
+* [GitHub API], [Kubernetes], [Docker] 외
+
 ## Apache S2Graph
 
 * 대용량 분산 그래프 데이터베이스
@@ -63,4 +69,6 @@ tags: [opensource,s2graph,mrte,hbase-tools,hbase-region-inspector,adt,daum-edito
 [Go]:https://golang.org
 [HBase]:https://hbase.apache.org
 [MySQL]:http://www.mysql.com
-
+[GitHub API]:https://developer.github.com/enterprise/2.8/v3/
+[Kubernetes]:http://kubernetes.io/docs/
+[Docker]:https://docs.docker.com/
