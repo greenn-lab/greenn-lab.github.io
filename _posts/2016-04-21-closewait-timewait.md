@@ -67,6 +67,7 @@ tcp        1      0 10.xx.xx.26:8080           10.yy.yy.152:30147          CLOSE
 `CLOSE_WAIT`을 아래와 같이 Java 코드로 재현 했습니다.[^1] 아래 예제에서도 **서버가 먼저 `FIN`을 보내 클라이언트가 `CLOSE_WAIT` 상태에 빠지는 것**을 보여줍니다.
 
 * `Server.java` (sends some data and exits)
+
 ```java
 package com.company;
 
@@ -93,6 +94,7 @@ public class Server {
 ```
 
 * `Client.java` (will sleep in `CLOSE_WAIT`)
+
 ```java
 package com.company;
 
@@ -231,6 +233,7 @@ $ jstack 27836
 `TIME_WAIT`의 타임아웃 정보는 커널 헤더 `include/net/tcp.h` 에 하드 코딩 되어 있으며 변경이 불가능합니다.
 
 * `include/net/tcp.h`
+
 ```c
 #define TCP_TIMEWAIT_LEN (60*HZ) /* how long to wait to destroy TIME-WAIT
                                   * state, about 60 seconds     */
@@ -436,6 +439,7 @@ setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(yes));
 > **틀린 정보**: `SO_REUSEADDR` 와 `tcp_tw_reuse` 는 동일하게 적용되는 옵션이다.
 
 * `net/core/sock.c`
+
 ```c
         case SO_REUSEADDR:
                 sk->sk_reuse = (valbool ? SK_CAN_REUSE : SK_NO_REUSE);
@@ -474,12 +478,14 @@ $ tcpdump -nn -i eth0 host 10.xx.xx.141
 매우 특이한 경우지만 드물게 발생할 수 있는 경우입니다. 그리고 이런 경우 양쪽 모두 `TIME_WAIT` 상태에 빠지게 됩니다.
 
 * Server
+
 ```console
 $ ss -tanop | grep 1063
 TIME-WAIT  0  0  10.yy.yy.140:5000  10.xx.xx.141:1063  timer:(timewait,45sec,0)
 ```
 
 * Client
+
 ```console
 $ ss -taonp | grep 1063
 TIME-WAIT  0  0  10.xx.xx.141:1063  10.yy.yy.140:5000  timer:(timewait,42sec,0)
@@ -572,6 +578,7 @@ net.ipv4.ip_local_port_range = 32768  61000
 1번의 경우 클라이언트 입장에서는 서버에 남아 있는 `TIME_WAIT` 상태를 알 수 없습니다. 따라서 클라이언트는 계속해서 임의의 포트(ephemeral port)에 `SYN` 패킷을 내보냅니다. 임의의 포트는 순차 증가하는 형태이므로 FIFO 기준을 따르게 됩니다. 서버에는 `TIME_WAIT` 상태로 남아 있지만 동일 소켓이 `SYN`을 수신하면 재사용하게 됩니다. 양쪽 모두 별도 설정은 필요 없습니다다.
 
 * `net/ipv4/tcp_minisocks.c`
+
 ```c
 /*
  *      RFC 1122:
@@ -613,6 +620,7 @@ ESTAB      0      0              10.xx.xx.141:1033          10.yy.yy.140:22     
 그렇다면 리눅스 커널에서 로컬 포트가 어떤 알고리즘으로 바인드(`bind()`) 되는지 좀 더 자세히 살펴보겠습니다. 클라이언트가 패킷을 전송할때 아직 할당된 로컬 포트가 없다면 아래와 같이 오토 바인드를 진행합니다.
 
 * `net/ipv4/af_inet.c`
+
 ```c
 int inet_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
 {
@@ -629,6 +637,7 @@ int inet_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
 `inet_autobind()`는 가능한 포트를 소켓 구조체 멤버 함수인 `get_port()`를 통해 찾는군요.
 
 * `net/ipv4/af_inet.c`
+
 ```c
 static int inet_autobind(struct sock *sk)
 {
@@ -651,6 +660,7 @@ static int inet_autobind(struct sock *sk)
 `get_port()`는 `inet_csk_get_port()`로 선언되어 있는데, 이 함수에는 두 번째 인자가 `0`일때 선택 가능한 로컬 포트를 자동으로 찾아내는 알고리즘이 구현되어 있습니다.
 
 * `net/ipv4/inet_connection_sock.c`
+
 ```c
 /* Obtain a reference to a local port for the given sock,
  * if snum is zero it means select any available local port.
@@ -684,6 +694,7 @@ again:
 이 코드를 보면 먼저 `inet_get_local_port_range()` 함수에서 `net.ipv4.ip_local_port_range`로 선언된 가능한 포트 범위를 읽어들이고 이 중 랜덤으로 첫번째 값을 고릅니다. 그리고 해시 테이블의 정보와 비교하여 사용 가능한 상태인지 +1 씩 증가하면서 확인합니다. 마지막 값에 도달한 다음에는 다시 가장 낮은 값으로 돌아가 반복합니다. 이 과정을 통해 사용 가능한 포트를 찾아냅니다.
 
 * `net/ipv4/inet_connection_sock.c`
+
 ```c
 if (net_eq(ib_net(tb), net) && tb->port == rover) {
         if (((tb->fastreuse > 0 &&
@@ -771,6 +782,7 @@ net.ipv4.tcp_tw_reuse = 1
 그러나, 성능은 월등합니다.
 
 * `net/ipv4/tcp_minisocks.c`
+
 ```c
                 if (recycle_ok) {
                         tw->tw_timeout = rto;
@@ -803,6 +815,7 @@ newicsk->icsk_rto = TCP_TIMEOUT_INIT;
 커널 헤더에 `TIME_WAIT`은 `TCP_TIMEWAIT_LEN` 이라는 상수로 `60초` 하드 코딩 되어 있으며 변경할 수 없습니다.
 
 * `include/net/tcp.h`
+
 ```c
 #define TCP_TIMEWAIT_LEN (60*HZ) /* how long to wait to destroy TIME-WAIT
                                   * state, about 60 seconds     */
@@ -821,6 +834,7 @@ newicsk->icsk_rto = TCP_TIMEOUT_INIT;
 `TIME_WAIT`의 대기 시간이 `tcp_fin_timeout` 설정에 영향을 받는다는 내용은 옛날 이야기이며, 지금은 오히려 그 반대인 `TCP_TIMEWAIT_LEN` 상수값이 `FIN_WAIT2`의 대기시간에 영향을 끼칩니다. 아래 커널 코드에서 확인할 수 있습니다.
 
 * `include/net/tcp.h`
+
 ```c
 static inline int tcp_fin_time(const struct sock *sk)
 {
@@ -835,6 +849,7 @@ static inline int tcp_fin_time(const struct sock *sk)
 ```
 
 * `net/ipv4/tcp.c`
+
 ```c
         if (sk->sk_state == TCP_FIN_WAIT2) {
                 struct tcp_sock *tp = tcp_sk(sk);
@@ -858,6 +873,7 @@ static inline int tcp_fin_time(const struct sock *sk)
 ```
 
 * `net/ipv4/tcp_timer.c`
+
 ```
         if (sk->sk_state == TCP_FIN_WAIT2 && sock_flag(sk, SOCK_DEAD)) {
                 if (tp->linger2 >= 0) {
@@ -905,6 +921,7 @@ TIME-WAIT  0      0              10.xx.xx.141:50097         10.yy.yy.140:5000   
 `FIN_WAIT2`에서 `ACK`을 받지 못하면 소켓은 곧바로 종료됩니다. 따라서 리눅스 커널은 `FIN_WAIT2`를 `TIME_WAIT`처럼 활용하고 있습니다. `TIME_WAIT`은 패킷의 오동작을 막아주는 역할을 하는데 `FIN_WAIT2` / timewait 상태는 `tcp_tw_recycle` 처리와 일부 잘못된 패킷 처리 로직이 상단에 추가된 형태로 사실상 `TIME_WAIT`과 동일한 역할을 하게 됩니다.
 
 * `net/ipv4/tcp_minisocks.c`
+
 ```c
 enum tcp_tw_status
 tcp_timewait_state_process(struct inet_timewait_sock *tw, struct sk_buff *skb,
