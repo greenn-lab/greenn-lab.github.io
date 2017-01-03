@@ -82,7 +82,17 @@ Cite에서는 Kubernetes에 내장된 rolling-upgrade 베포 방식이 아닌 A-
   * nodes : 물리장비 x 10대
   * elasticsearch : 물리장비 x 4대 + 가상머신 3대
   * loadbalancer : Citrix NetScaler active/standby
-* Kubernetes Service : 184개, pod : 332개
+* Kubernetes Services
+  * service : 184개
+  * pod : 332개
+
+* 전체 물리장비 현황
+
+![Cite Cluster Stats](/files/cite-cluster-stats.png)
+
+* node 1의 24시간 현황
+
+![Cite Node1 Stats](/files/cite-node1-stats.png)
 
 ## 적용 사례 : skraper (by [pj.vegan](mailto:pj.vegan@kakaocorp.com))
 
