@@ -474,6 +474,20 @@ for small screen(<720px):
     margin-left: 5px;
 }
 
+#shares > li.talk {
+    display: none;
+}
+
+#kakao-link-btn {
+    background: url(../images/pc/share_talk.png) no-repeat;
+    background-size: 20px 20px;
+}
+
+#share-kakaostory {
+    background: url(../images/pc/share_story.png) no-repeat;
+    background-size: 20px 20px;
+}
+
 #share-facebook {
     background: url(../images/pc/share_face.png) no-repeat;
     background-size: 20px 20px;
@@ -1275,6 +1289,16 @@ body.page-template {
         height: 22px;
     }
 
+    #kakao-link-btn {
+        background-image: url(../images/mo/share_talk.png);
+        background-size: 22px 22px;
+    }
+
+    #share-kakaostory {
+        background-image: url(../images/mo/share_story.png);
+        background-size: 22px 22px;
+    }
+
     #share-facebook {
         background-image: url(../images/mo/share_face.png);
         background-size: 22px 22px;
@@ -1561,6 +1585,16 @@ body.page-template {
         background-image: url(../images/mo/icon_larrow@2x.png);
     }
 
+    #kakao-link-btn {
+        background-image: url(../images/mo/share_talk@2x.png);
+        background-size: 22px 22px;
+    }
+
+    #share-kakaostory {
+        background-image: url(../images/mo/share_story@2x.png);
+        background-size: 22px 22px;
+    }
+
     #share-facebook {
         background-image: url(../images/mo/share_face@2x.png);
     }
@@ -1639,6 +1673,16 @@ body.page-template {
 
     #link-back {
         background-image: url(../images/mo/icon_larrow@3x.png);
+    }
+
+    #kakao-link-btn {
+        background-image: url(../images/mo/share_talk@3x.png);
+        background-size: 22px 22px;
+    }
+
+    #share-kakaostory {
+        background-image: url(../images/mo/share_story@3x.png);
+        background-size: 22px 22px;
     }
 
     #share-facebook {
