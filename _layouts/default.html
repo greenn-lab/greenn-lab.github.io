@@ -23,23 +23,24 @@
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 
 {% if site.google_analytics %}
-    {% include google_analytics.html %}
+{% include google_analytics.html %}
 {% endif %}
 
-{% include kakaotalk_link.html %}
-{% include kakaostory_sdk.html %}
+{% if page.layout != 'home' %}
+    {% include kakaotalk_link.html %}
+    {% include kakaostory_sdk.html %}
 
-{% if site.facebook %}
+    {% if site.facebook %}
     {% include facebook_sdk.html %}
-{% endif %}
+    {% endif %}
 
-{% if site.twitter %}
+    {% if site.twitter %}
     {% include twitter_sdk.html %}
-{% endif %}
+    {% endif %}
 
-{% if site.google_plus %}
+    {% if site.google_plus %}
     {% include google_plus_sdk.html %}
+    {% endif %}
 {% endif %}
-
 </body>
 </html>
