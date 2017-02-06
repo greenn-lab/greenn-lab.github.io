@@ -48,11 +48,25 @@ Rx.Observable.fromEvent(searchInputField, 'keyup') 
             return null;          
         } 
         return current;      
-      }, null)      
+  }, null)      
   .filter(function(text) {return text != null})      
 ```   
 
-이렇게 찾은 유효한 입력은 flatMapLatest를 통해 server에 요청하게 됩니다.  
+### 업데이트 된 내용  
+원래 내용에서는 scan과 filter조합으로 distinctUntilChanged 이후에 첫 originalValue 걸러지게 하였는데, 복잡하여 다른 방법을 찾아 소개 합니다.  
+startWith와 skip의 조합입니다. originalValue로 시작하여 distinctUntilChanged 이후에는 skip(1)을 하여 첫 originalValue 1개는 skip하도록 하는 것 입니다.  
+이렇게 하면 default로 입력된 originalValue는 최초 distinctUntilChanged에 영향을 주게 되면서 skip할 수 있습니다.  
+
+```javascript
+Rx.Observable.fromEvent(searchInputField, 'keyup') 
+  .map(function (e) {return e.target.value;})      
+  .debounce(300)
+  .startWith(originalValue) 
+  .distinctUntilChanged()      
+  .skip(1)   
+```   
+
+여기까지 찾은 유효한 입력은 flatMapLatest를 통해 server에 요청하게 됩니다.  
 비동기 방식으로 결과가 오기 때문에, 서버로부터 응답이 오는 순서가 섞이면 flatMapLatest를 사용하여 요청에 대한 응답이 이미 온 응답보다 앞선 요청일 경우 무시하게 했습니다.  
 현재는 mobile환경에서만 서제스트 검색에서 닫기 버튼이 있어 PC환경과 반응형 웹 대응으로 인해 takeUntil이 없지만, 두 환경에 닫기 버튼이 있을 당시에는 takeUntil을 적용하여 닫기 버튼을 누를 때까지 키보드 입력에 대한 event를 처리한 코드도 있어 함께 소개합니다.  
 
@@ -60,14 +74,9 @@ Rx.Observable.fromEvent(searchInputField, 'keyup') 
 Rx.Observable.fromEvent(searchInputField, 'keyup') 
   .map(function (e) {return e.target.value;})      
   .debounce(300) 
+  .startWith(originalValue) 
   .distinctUntilChanged()      
-  .scan(function(prev, current) { 
-        if (prev == null && current == originalValue) {
-            return null;          
-        }          
-        return current;      
-        }, null)      
-  .filter(function(text) {return text != null})      
+  .skip(1)       
   .flatMapLatest(function(text) {          
     return Rx.Observable.fromPromise(
         $.ajax({ url: suggestUrl,
@@ -105,27 +114,27 @@ Rx.Observable.fromEvent(window, 'keydown') 
     return code == 38 || code == 40 || code == 13 })
     // up(38), down(40), enter(13)   
   .scan(function(prevKeyAndIndexObj, currentKeyCode) { 
-            var indexGap = 0;         
-            switch(currentKeyCode) { 
-                case 38:
-                    indexGap = -1;                         
-                    break;
-                case 40:
-                    indexGap = 1;                 
-                    break;
-                case 13:
-                default: 
-                    indexGap = 0;
-                    break;         
-            }
-            var prevFocusedIndex = prevKeyAndIndexObj.focusedIndex;         
-            return {             
-              focusedIndex: Math.min(Math.max(indexGap + prevFocusedIndex, -1),
-                suggestList.length - 1),
-              keyCodeValue: currentKeyCode         
-            };     
-         }, {focusedIndex: -1, keyCodeValue: -1})    
-    .subscribe(
+        var indexGap = 0;         
+        switch(currentKeyCode) { 
+            case 38:
+                indexGap = -1;                         
+                break;
+            case 40:
+                indexGap = 1;                 
+                break;
+            case 13:
+            default: 
+                indexGap = 0;
+                break;         
+        }
+        var prevFocusedIndex = prevKeyAndIndexObj.focusedIndex;         
+        return {             
+          focusedIndex: Math.min(Math.max(indexGap + prevFocusedIndex, -1),
+            suggestList.length - 1),
+          keyCodeValue: currentKeyCode         
+        };     
+  }, {focusedIndex: -1, keyCodeValue: -1})    
+  .subscribe(
       function onNext(keyAndIndexObj) {
             var focusedIndex = keyAndIndexObj.focusedIndex;
             var keyCodeValue = keyAndIndexObj.keyCodeValue;
@@ -144,7 +153,7 @@ Rx.Observable.fromEvent(window, 'keydown') 
       function onCompleted() {
           // NOTHING
       }
-    );      
+  );      
 ```   
 
 ## 평점 늘리기  
