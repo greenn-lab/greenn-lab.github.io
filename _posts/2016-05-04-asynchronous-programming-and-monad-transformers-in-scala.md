@@ -791,7 +791,7 @@ def getPointByUserEmail(email: String): Future[Option[Points]] =
 [36]: http://www.scala-sbt.org/
 [37]: http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/AsyncRestTemplate.html
 [38]: http://loicdescotte.github.io/posts/scala-compose-option-future/
-[39]: http://tech.kakao.com/2016/03/03/monad-progamming-with-scala-future/
+[39]: http://tech.kakao.com/2016/03/03/monad-programming-with-scala-future/
 [40]: https://github.com/twitter/finagle
 [41]: https://github.com/twitter/finagle/blob/develop/finagle-core/src/main/scala/com/twitter/finagle/Client.scala#L33
 [42]: https://github.com/twitter/finagle/tree/develop/finagle-mysql
