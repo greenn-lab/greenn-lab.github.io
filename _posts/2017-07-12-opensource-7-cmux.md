@@ -2,7 +2,7 @@
 layout: post
 title: 'kakao의 오픈소스 Ep7 - CMUX: CLI에 날개를 달자!'
 author: jon.kwon
-tags: [cmux,hadoop,cloudera,tmux,fzf,ruby]
+tags: [opensource,cmux,hadoop,cloudera-manager,tmux,fzf,ruby]
 ---
 
 <a id="forkme" href="https://github.com/kakao/cmux"></a>
