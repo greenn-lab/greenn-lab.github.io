@@ -9,9 +9,9 @@ tags: [opensource,cmux,hadoop,cloudera-manager,tmux,fzf,ruby]
 
 > "카카오의 오픈소스를 소개합니다" 일곱 번째는 [jon.kwon](http://github.com/jonkwon)과 동료들이 개발한 **CMUX**입니다.
 >
-> [CMUX](https://github.com/kakao/cmux)는 [Cloudera Manager](https://www.cloudera.com/products/product-components/cloudera-manager.html?) 기반의 하둡 클러스터를 관리하는데 필요한 대화형 커멘드라인 인터페이스 도구들을 제공합니다.
+> [CMUX](https://github.com/kakao/cmux)는 [Cloudera Manager](https://www.cloudera.com/products/product-components/cloudera-manager.html?) 기반의 하둡 클러스터를 관리하는데 필요한 대화형 커맨드라인 인터페이스 도구들을 제공합니다.
 >
-> CMUX의 아이디어를 참고해 보세요. 여러분의 커멘드라인에 날개를 달 수 있을 것입니다.
+> CMUX의 아이디어를 참고해 보세요. 여러분의 커맨드라인에 날개를 달 수 있을 것입니다.
 
 
 ## 카카오의 하둡 엔지니어링 파트에서는 CMUX를 이렇게 사용합니다.
@@ -58,7 +58,7 @@ CMUX의 꽃에 해당되는 부분입니다. 빔(Vim)신이라고 불리는 카�
 걸러진 결과를 바탕으로 명령어 또는 명령어 집합을 생성합니다. CMUX는 [Ruby](https://www.ruby-lang.org)로 작성되어 있기 때문에 당연히 Ruby 코드로 생성하겠죠.
 
 ### 명령어 실행 단계
-생성한 명령어 또는 명령어 집합을 실행합니다. 이 때 명령어 집합을 병렬로 실행할 수 있는 인터페이스가 필요할 수 있는데, CMUX는 이를 위해 [TMUX](https://github.com/tmux/tmux/wiki)를 사용합니다.
+생성한 명령어 또는 명령어 집합을 실행합니다. 이때 명령어 집합을 병렬로 실행할 수 있는 인터페이스가 필요할 수 있는데, CMUX는 이를 위해 [TMUX](https://github.com/tmux/tmux/wiki)를 사용합니다.
 
 그럼, 이해를 돕기 위해 간단한 예제 코드를 통해 이 과정을 구현해 보겠습니다.
 
