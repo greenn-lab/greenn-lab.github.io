@@ -36,13 +36,6 @@
             }
         });
 
-        $('#search').submit(function (e) {
-            e.preventDefault();
-            var q = $('#searchQueryEdit').val();
-            var url = 'http://search.daum.net/search?w=web&q=' + encodeURIComponent(q + ' site:tech.kakao.com');
-            window.open(url, '', '_blank');
-        });
-
         $(window).scroll(function () {
             var viewportTop = $(window).scrollTop();
             if (viewportTop) {
