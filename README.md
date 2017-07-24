@@ -60,9 +60,13 @@ $ git push origin master
 
 ### 새 글 작성
 
-1. `_draft` 디렉토리에 `적당한이름.md` 이름으로 파일을 만들고
+1. `_drafts` 디렉토리에 `적당한이름.md` 이름으로 파일을 만들고
 2. 포스트를 마크다운으로 작성
   - gfm 문법, kramdown 파서, rouge 문법강조기 사용
+3. 확인 
+```
+$ bundle exec jekyll serve --drafts
+```
 
 ### 글 쓰기
 
