@@ -19,7 +19,7 @@ krandown:
   input: GFM
   highlighter: rouge
 
-gems:
+plugins:
   - jekyll-paginate
 
 paginate: 5
@@ -48,7 +48,7 @@ defaults:
 exclude: [README.md, Gemfile, Gemfile.lock]
 
 keep_files: [assets, files]
-
+github: [metadata]
 # iolo's custom
 author: opensource@kakaocorp.com
 image: '/assets/images/default_blog_cover.jpg'
@@ -64,5 +64,5 @@ twitter:
   username: kakaodev
 google_plus:
   username: kakaodev
-github:
+github_url:
   username: kakao
