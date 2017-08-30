@@ -3,7 +3,7 @@ layout: post
 title: '카카오 블라인드 신입 개발자 공채를 실시합니다!'
 author: medivh.0923
 date: 2017-08-30 10:00
-tags: [카카오 신입 개발자 공채]
+tags: [employment]
 image: /files/covers/employment_cover.png
 ---
 
