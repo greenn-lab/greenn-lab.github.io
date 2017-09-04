@@ -26,7 +26,7 @@ AND items.id = wishes.itemId
 ```
 
 단순함을 가지고 있는 Monolithic은 장점도 많이 있지만 단점이 많은 개발 방법론입니다.
-하나의 코드 베이스안에서 모든것이 관리 되기 때문에 경계선이 애매하고 많은 컴포넌트가 서로 의존을 가지고 강결함을 이루고 있게 됩니다.
+하나의 코드 베이스안에서 모든것이 관리 되기 때문에 경계선이 애매하고 많은 컴포넌트가 서로 의존을 가지고 강결합을 이루고 있게 됩니다.
 코드가 늘어남에 따라 시스템은 무거워지고 조금만 고쳐도 여러곳에서 side effect가 생기며 외부 변화에 빠르게 대처하지 못하게 됩니다.
 
 이런 단점을 극복하기 위해서 [마이크로 서비스][1]란 개념이 [2011년도][2]에 나오고 그 이후 패러다임이 바뀌게 되었습니다.
@@ -42,8 +42,8 @@ AND items.id = wishes.itemId
 
 마이크로 서비스로 개발하는 것은 무조건 좋고 장점만 있는 것은 아닙니다.
 마이크로 서비스로 개발 방법론 을 한다는 것은 과거의 [Monolithic 아키택쳐][16]로 하나의 저장소만 관리하는것과 완전 다른 개발 방식을 가져오게 되었습니다.
-각각의 마이크로 서비스는 각각의 서비스가 독립적으로 동작하기 때문에 자신만의 고유한 데이터를 가지고 있습니다.
-많은 데이터가 각각의 마이크로 서비스로 분산 됩니다.
+각각의 마이크로 서비스는 독립적으로 동작하기 때문에 자신만의 고유한 데이터를 가지고 있습니다.
+즉 많은 데이터는 각각의 마이크로 서비스로 분산 됩니다.
 
 
 ![Monolithic vs microservices architecture](http://i.imgur.com/qzwSwHK.png)
@@ -52,15 +52,16 @@ AND items.id = wishes.itemId
 Monolithic으로 개발시에는 메인의 DB에 [ER Diagram][17]만 잘알면 되었지만
 다른 마이크로 서비스의 데이터는 어디에 어떤 테이블로 저장되어었는지 알 필요가 없습니다.
 도메인이 분리 되었기 때문에 다른 마이크로 서비스의 API의 스펙 관리 하고 이를 쉽게 호출 할수 있어야 해야 합니다.
-이를 위해 Rest API는 documentation을 잘 보여주는 [Swagger][18], RPC의 [Thrfit][35] 그리고 [GRPC][36]와 같은 도구로 API Spec을 표현합니다.
+이를 위해 Rest API는 documentation을 잘 보여주는 [Swagger][18], RPC의 [Thrift][35] 그리고 [GRPC][36]와 같은 도구로 API Spec을 주로 표현합니다.
+물론 API Spec을 관리하는 다른 방법도 많이 있습니다.
 
 
-그리고 분리된 데이터를 합치고 구성하기 위해서 [API Gateway][19]에서 여러곳에 마이크로 서비스의 정의된 API를 호출하여 분산되어 있는 다양한 정보를 가져와서 조합을 해야합니다.
+분리된 데이터를 합치고 구성하기 위해서 [API Gateway][19]에서 여러곳에 마이크로 서비스의 정의된 API를 호출하여 분산되어 있는 다양한 정보를 가져와서 조합을 해야합니다.
 
 ## 순차 연동 방식
 예를 들어 마이크로 서비스에서 정보를 얻기 위해서 10개의 API에서 정보를 가져와야 할 경우가 있다고 해보겠습니다.
 이를 동기화 방식으로 처리를 한다면 각각의 API가 100 ms의 응답을 준다면 **1초의 딜레이**가 생기게 됩니다.
-마이크로 서비스가 좋다고 했는데 SQL한번호출하고 200ms이면 되던 API가 **5배나 느려졌습니다**.
+마이크로 서비스가 좋다고 했는데 SQL 한번 호출하고 200ms이면 되던 API가 **5배나 느려졌습니다**.
 
 ![](http://i.imgur.com/2qx57hH.png)
 * 이미지 출처 : Reactive Microservices Architecture By Jonas Bonér, Co-Founder & CTO Lightbend, Inc.
@@ -91,24 +92,24 @@ val product: Future[ProductDto] = for {
 ```
 
 위의 [for comprehension 코드는 flatMap과 map으로 변경][20]이 됩니다.
-예를 들어 아래와 같이 변환 하게 됩니다.
+아래와 같은 룰을 통해 변환 하게 됩니다.
 
 ```scala
 for(x <- c1; y <- c2; z <- c3) yield {...}
 ```
 
-위의 코드는 아래 코드로
+중간 `<-` 는 flatMap으로 마지막 `<-` 는 map 함수를 이용해 아래 코드로 변하게 됩니다.
 
 ```scala
 c1.flatMap(x => c2.flatMap(y => c3.map(z => {...})))
 ```
 
-Future의 flatMap은 앞의 행위가 완료 되었을때 즉 API를 호출 했다면 그 전 API가 완료 되어야만 그 다음 API가 callback으로 수행하기 됩니다.
+Future의 flatMap은 앞의 행위가 완료 되었을때, 특정 API를 호출 했다면 그 API가 완료 되어야만 다음 API가 callback으로 수행하기 됩니다.
 
 ![Future의 flatMap을 이용한 순차 합성](http://i.imgur.com/AQt1rOb.png)
 * 이미지 출처 : [Akka Concurrency - 12. Coding in the Future](https://www.artima.com/shop/akka_concurrency)
 
-그렇기 때문에 이 코드는 아레 순서대로 데이터를 가져오게 됩니다.
+그렇기 때문에 이 코드는 아래 순서대로 데이터를 가져오게 됩니다.
 ```scala
 item => catalog => brand => wishCount => category => detail => certification
 ```
@@ -180,7 +181,7 @@ slatency(p, s)
 ### Scala Future의 Eager evaluation 활용하기
 `scala.concurrent.Future`의 특성을 고려해서 구현해보겠습니다.
 scala에서 기본으로 제공해주는 [Future][22]는 [eager evaluation][29] 방식으로 동작합니다.
-[lazy(사용하는 시점) evaluation][30]이 아니라 선언되는 시점에 바로 동작하기 때문에
+[lazy(사용하는 시점) evaluation][30]이 아니라 선언되는 시점에 바로 동작하기 합니다.
 간단하게 테스트 해보면 변수 `future`를 따로 실행을 하지 않아도 1초 후에 'hello world'가 화면에 출력됩니다.
 
 ```scala
@@ -227,7 +228,7 @@ private def getProduct(itemId: Int): Future[ProductDto] = {
 하지만 코드가 2배로 늘어났다 한번만 쓰고 필요없는 local variable이 왕창 늘어 났습니다.
 그리고 중대한 문제점이 하나 더 들어있습니다.
 자바에도 Future에 대한 다양한 구현체, [thrird party 라이브러리][6]가 존재를 하듯이
-이와 마찬가지로 스칼라에도 [monix - Task][7], [scalaz - Task][8], [twitter future][23]등 다양한 비동기 구현제가 존재한다.
+이와 마찬가지로 스칼라에도 [monix - Task][7], [scalaz - Task][8], [twitter future][23]등 다양한 비동기 구현제가 존재합니다.
 
 이 구현체들은 [scala.concurrent.Future][28] 처럼 eager evaluation을 한다는 보장은 없습니다.
 [Twitter가 만든 Future][23] 구현체의 경우 eager evaluation을 하지만
@@ -347,7 +348,7 @@ ap: F[A => B] => F[A] => F[B]
 ```scala
 coflatMap: (F[A] => B) => F[A] => F[B]
 ```
-그외에도 F[A]를 F[B]를 변화 시키는 [여러 typeclass][27]가 존재합니다. 또만 [`F[A] ~> G[A]`][38]로 변환 시키는 것도 존재합니다.
+그외에도 F[A]를 F[B]를 변화 시키는 [여러 typeclass][27]가 존재합니다. 또한 [`F[A] ~> G[A]`][38]로 변환 시키는 것도 존재합니다.
 이 글에서는 Applicative에만 집중하겠습니다.
 
 언제나 그렇듯 의문이 들고 많은 질문을 받는습니다.
@@ -387,14 +388,14 @@ val fa2b: F[A => B] = map(fb)(b => (a: A) => b)
 val faab: F[A => (A, B)] = map(fb)(b => (a: A) => (a, b))
 ```
 
-이제 하나가 함수가 되었기 때문에 ap함수에 적용시킬수 있습니다.. 타입도 정확합니다.
+이제 하나가 함수가 되었기 때문에 ap함수에 적용시킬수 있습니다. 타입도 정확합니다.
 `(F[A])(F[A => (A, B)]) => F[(A, B)]` 그다음에 `ap(fa)(faab)`를 적용시키면 `F[(A, B)]`의 형태가 됩니다.
 ```scala
 val fab: F[(A, B)] = ap(fa)(faab)
 ```
 어떻게 사용할지 몰랐던 **ap 함수는 두개의 Future를 합치는데 탁월한 역할**을 합니다.
 
-간단하게 두개의 future를 합치는 함수를 만들었습니다. 이를 일반화 하고 이 함수 이름을 product라 하겠습니다.
+간단하게 두개의 future를 합치는 함수를 만들었습니다. 이를 일반화하고 이 함수 이름을 product라 하겠습니다.
 ```scala
 def product[A, B](fa: F[A], fb: F[B]): F[(A, B)] = {
   val faab: F[A => (A, B)] = map(fb)(b => (a: A) => (a, b))
@@ -417,7 +418,7 @@ ap를 두개의 future를 동시에 완료되게 구현하면 동시에 fa, fb�
 즉 병렬로 A와 B를 가져오는 연산을 ap함수에 구현하면 product함수도 병렬로 실행되게 됩니다.
 
 ```scala
-def ap[A, B](fa: => Future[A])(fab: => Future[A => B]) =
+def ap[A, B](fa: Future[A])(fab: Future[A => B]) =
   fab zip fa map { case (fa, a) => fa(a) }
 ```
 
@@ -436,15 +437,15 @@ flatMap을 이용해서 ap를 구현할수는 있습니다.
 하지만 이 ap함수는 flatMap의 순차 연산 특성을 가지게 되기 때문에
 병렬연산의 특성을 가지 있지 않다는것에 주의해야합니다.
 
-앞에서 말했듯이 cats의 future instance가 실제 병렬로 잘 동작하는 이유는 scala의 future가 eager evaluation이기 때문이다.
-product 함수를 호출하는 시점에 이미 두개의 future가 이미 실행되었기 때문이다.
+앞에서 말했듯이 cats의 future instance가 실제 병렬로 잘 동작하는 이유는 scala의 future가 eager evaluation이기 때문입니다.
+product 함수를 호출하는 시점에 이미 두개의 future가 이미 실행되었기 때문입니다.
 
 cats에서 기본 제공해주는 future instance를 사용하지않고 별도로 future.zip을 이용해서 구현해서 사용하는 사례 [1][10], [2][11]가 있습니다.
 
 그리고 [scalaz][41]와 [monix][42]에서는 [nondeterminism][39]이라는 기능을 제공해서 Applicative를 병렬로 연산하거나 순차연산 할것인지를 명시적으로 선택할수 있습니다.
 
 #### Nondeteminism을 이용한 병렬 프로그래밍
-scalaz의 task는 아래 예를 참고하면 된다.
+scalaz의 task는 아래 예를 참고하면 됩니다.
 parallel로 동작하기 위해서는 `Nondeterminism`를 활용하면 됩니다.
 
 ```scala
