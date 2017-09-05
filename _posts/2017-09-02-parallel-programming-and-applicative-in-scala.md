@@ -228,7 +228,7 @@ private def getProduct(itemId: Int): Future[ProductDto] = {
 하지만 코드가 2배로 늘어났다 한번만 쓰고 필요없는 local variable이 왕창 늘어 났습니다.
 그리고 중대한 문제점이 하나 더 들어있습니다.
 자바에도 Future에 대한 다양한 구현체, [thrird party 라이브러리][6]가 존재를 하듯이
-이와 마찬가지로 스칼라에도 [monix - Task][7], [scalaz - Task][8], [twitter future][23]등 다양한 비동기 구현제가 존재합니다.
+이와 마찬가지로 스칼라에도 [monix - Task][7], [scalaz - Task][8], [twitter future][23]등 다양한 비동기 구현체가 존재합니다.
 
 이 구현체들은 [scala.concurrent.Future][28] 처럼 eager evaluation을 한다는 보장은 없습니다.
 [Twitter가 만든 Future][23] 구현체의 경우 eager evaluation을 하지만
