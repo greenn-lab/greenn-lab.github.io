@@ -7,12 +7,12 @@ tags: [parallel,applicative,scala,async,functional-programming]
 image: /files/covers/monad.jpg
 ---
 ### Monolithic 아키텍쳐로 개발하기
-[Monolithic 아키택쳐][16]로 개발시에는 일반적으로 하나의 저장소만 고려해야 하는 경우가 많았습니다.
+[Monolithic 아키텍쳐][16]로 개발시에는 일반적으로 하나의 저장소만 고려해야 하는 경우가 많았습니다.
 
 Monolithic 아키텍쳐를 사용하면 편리한점이 많습니다.
 코드가 한곳에 모여 있고 데이터가 한곳에 집중이 되어 있다는 것입니다.
 일반적인 정규화 된 테이블에서 상품과 관련된 정보를 가져온다고 가정해보겠습니다.
-데이터는 여러개의 테이블로 쪼개져 있기 때문에 필요한 데이터를 조합이 필요하다면 아래와 같이 SQL을 이용해서 여러개의 테이블을 join해서 데이터를 조합하여  가져올수 있습니다.
+데이터는 여러개의 테이블로 쪼개져 있기 때문에 필요한 데이터를 조합이 필요하다면 아래와 같이 SQL을 이용해서 여러개의 테이블을 join해서 데이터를 조합하여  가져올 수 있습니다.
 
 ```sql
 SELECT *
@@ -33,7 +33,7 @@ AND items.id = wishes.itemId
 특히 Netflix와 같은 실리콘 밸리의 유명한 IT기업에 이를 [전폭적으로 사용][3]하고 이에 대한 성공 사례를 보여주며
 많은 기업과 소프트웨어 개발자들이 이 아키텍쳐를 채택 해야하는 근거를 제시해주었습니다.
 이제 마이크로 서비스는 많은 관심을 가지고 [엔터프라이즈 시장에서 인기][15]를 가지고 있는 아키텍쳐 입니다.
-아래 통계자료를 보면 75% 이상이 마이크로 서비스를 일부 혹은 전면적으로 사용하며 개발할고 있습니다.
+아래 통계자료를 보면 75% 이상이 마이크로 서비스를 일부 혹은 전면적으로 사용하며 개발하고 있습니다.
 
 ![](http://i.imgur.com/zMjBCRx.jpg)
 * 이미지 출처 : [Microservices trends 2017: Strategies, tools and frameworks](https://jaxenter.com/microservices-trends-2017-survey-133265.html)
@@ -41,7 +41,7 @@ AND items.id = wishes.itemId
 ### 마이크로 서비스로 개발하기 - 데이터의 분리
 
 마이크로 서비스로 개발하는 것은 무조건 좋고 장점만 있는 것은 아닙니다.
-마이크로 서비스로 개발 방법론 을 한다는 것은 과거의 [Monolithic 아키택쳐][16]로 하나의 저장소만 관리하는것과 완전 다른 개발 방식을 가져오게 되었습니다.
+마이크로 서비스로 개발 방법론 을 한다는 것은 과거의 [Monolithic 아키텍쳐][16]로 하나의 저장소만 관리하는것과 완전 다른 개발 방식을 가져오게 되었습니다.
 각각의 마이크로 서비스는 독립적으로 동작하기 때문에 자신만의 고유한 데이터를 가지고 있습니다.
 즉 많은 데이터는 각각의 마이크로 서비스로 분산 됩니다.
 
@@ -75,7 +75,7 @@ Monolithic으로 개발시에는 메인의 DB에 [ER Diagram][17]만 잘알면 �
 ### Future Monad를 이용한 비동기 연동 방식
 
 이전 글([Asynchronous Programming and Monad Transformers in Scala][4])은 `Monad`를 이용한 비동기 연동방식
-Future Monad의 `flatMap`을 이용하여서 비동기 프로그래밍을 실행할수 있는 방법을 알려드렸습니다.
+Future Monad의 `flatMap`을 이용하여서 비동기 프로그래밍을 실행할 수 있는 방법을 알려드렸습니다.
 
 이것을 간단하게 코드로 표현하면 아래와 같습니다.
 
@@ -140,7 +140,7 @@ item => catalog => brand => wishCount => category => detail => certification
 >
 > **s** 는 병렬로 처리가능했을때 성능이 일어날수 있는 부분이다.
 >
-> **p** 는 전체 테스크중에 성능 개선(병령처리)이 가능한 부분의 원래 시간이다.
+> **p** 는 전체 테스크중에 성능 개선(병렬처리)이 가능한 부분의 원래 시간이다.
 
 
 각각의 데이터를 가져오는걸을 1초라 하면 각각의 연산의 단순합으 `1초 * 7 = 7초`가 걸리게 됩니다.
@@ -176,7 +176,7 @@ slatency(p, s)
 
 물론 방금 말한 수치는 단순한 가정입니다.
 복잡한 엔터프라이즈 환경에서 성능의 변수는 다양하고 많기 때문에 꼭 이렇다 말할수는 없습니다.
-하지만 동시에 실행할수 있다면 순차 프로그래밍보다 병렬 프로그래밍을 통해서 응답속도를 획기적으로 줄일수 있습니다.
+하지만 동시에 실행할 수 있다면 순차 프로그래밍보다 병렬 프로그래밍을 통해서 응답속도를 획기적으로 줄일 수 있습니다.
 
 ### Scala Future의 Eager evaluation 활용하기
 `scala.concurrent.Future`의 특성을 고려해서 구현해보겠습니다.
@@ -283,7 +283,7 @@ elapsed : 7.074971322 sec
 Eager evaluation의 효과를 이용해보려 했지만 여러개의 scala future를 합친결과는 monix의 task를 합친 결과는 다릅니다.
 
 비동기 연산의 구현체가 바뀌었다고 병렬로 진행되것이 순차로 진행되는것을 누구도 원하지 않을 것입니다.
-이를 해결하고 명확하게 프로그램에게 나는 이걸 병렬도 돌리고 싶다고 말할수 있는 방법이 있습니다.
+이를 해결하고 명확하게 프로그램에게 나는 이걸 병렬도 돌리고 싶다고 말할 수 있는 방법이 있습니다.
 
 병렬 프로그래밍을 하기 위해서 `Monad`와 eager evaluation 활용해서 만드는것 보다
 `Monad`의 친구 또다른 typeclass인 `Applicative`를 활용하는 방법이 있습니다.
@@ -353,7 +353,7 @@ coflatMap: (F[A] => B) => F[A] => F[B]
 
 언제나 그렇듯 의문이 들고 많은 질문을 받는습니다.
 Applicative란 함수는 도대체 언제 사용해야하는가?
-Applicative란 개념이 외 필요한가?
+Applicative란 개념이 왜 필요한가?
 
 Applicative 안에 있는 ap 함수는 future를 활용한 병렬 프로그래밍을 할때 효과적으로 사용될수 있습니다.
 ap함수는 바로 사용하는 경우는 많이 없지만 활용한 보조함수 `product`, `mapN` 같은 함수를 많이 사용하게 됩니다.
@@ -440,7 +440,7 @@ flatMap을 이용해서 ap를 구현할수는 있습니다.
 앞에서 말했듯이 cats의 future instance가 실제 병렬로 잘 동작하는 이유는 scala의 future가 eager evaluation이기 때문입니다.
 product 함수를 호출하는 시점에 이미 두개의 future가 이미 실행되었기 때문입니다.
 
-cats에서 기본 제공해주는 future instance를 사용하지않고 별도로 future.zip을 이용해서 구현해서 사용하는 사례 [1][10], [2][11]가 있습니다.
+cats에서 기본 제공해주는 future instance를 사용하지 않고 별도로 future.zip을 이용해서 구현해서 사용하는 사례 [1][10], [2][11]가 있습니다.
 
 그리고 [scalaz][41]와 [monix][42]에서는 [nondeterminism][39]이라는 기능을 제공해서 Applicative를 병렬로 연산하거나 순차연산 할것인지를 명시적으로 선택할수 있습니다.
 
@@ -508,7 +508,7 @@ itemRepository.findById(itemId).flatMap { item =>
 특히 비동기 프로그래밍(Monad), 병렬프로그래밍(Applicative)에는 장점이 부각이 됩니다.
 
 꼭 함수형 언어가 아니더라도 마이크로 서비스를 적용하고 있거나 적용하려고 한다면 코드의 많은 부분을 병렬 프로그래밍으로 바꿀수 있는지 보고 적극적으로 병렬로 처리하면
-더욱더 빠른 응답을 주고 마이크로 서비스의 장점을 최대화 할수 있을것이라 생각합니다. :-)
+더욱더 빠른 응답을 주고 마이크로 서비스의 장점을 최대화 할 수 있을 것이라 생각합니다. :-)
 
 [1]: https://martinfowler.com/articles/microservices.html
 [2]: https://en.wikipedia.org/wiki/Microservices#History
