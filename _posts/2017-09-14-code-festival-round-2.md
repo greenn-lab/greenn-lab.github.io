@@ -20,7 +20,8 @@ image: /files/covers/code-festival.jpg
 
 코드 페스티벌 본선에는 총 8문제가 출제되었습니다. 3시간이라는 짧은 시간동안 진행되었지만 참가자들의 대단한 실력을 증명하듯 모든 문제에 정답자가 있었습니다. 그럼 이제 문제를 하나하나 함께 살펴보실까요?
 
-[▶ 문제 다운로드 (pdf, 2.2MB)](http://t1.kakaocdn.net/codefestival/problems.pdf){:target="_blank"}
+- [문제 다운로드 (pdf, 2.2MB)](http://t1.kakaocdn.net/codefestival/problems.pdf){:target="_blank"}
+- [문제 풀러 가기](https://programmers.co.kr/learn/challenges/competitions?tag=%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%BD%94%EB%93%9C+%EB%B3%B8%EC%84%A0){:target="_blank"}
 
 ### 단체사진 찍기
 
