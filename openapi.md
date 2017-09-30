@@ -43,9 +43,9 @@ tags: [openapi]
 
 * [비즈 계정 센터](https://biz.kakao.com)
 
-## [옐로아이디](https://yellowid.kakao.com/)
+## [플러스친구](https://center-pf.kakao.com/)
 
-* [API 문서](https://www.gitbook.com/book/kakao/auto_reply_api)
+* [API 문서](https://github.com/plusfriend/auto_reply)
 
 ### [티스토리](http://www.tistory.com/guide/blog)
 
