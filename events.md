@@ -15,8 +15,9 @@ tags: [events]
 * 장소: 성남시 경기창조경제혁신센터
 * 내용: 카카오에서 준비한 대학(원)생 프로그래밍 경진대회
 
-> __[문제 해설]__
+> __[행사 후기 및 문제 해설]__
 >
+> * [카카오 코드 페스티벌, 본선의 막이 열리다!](http://blog.kakaocorp.co.kr/648)
 > * [카카오 코드 페스티벌 예선전 이야기](http://tech.kakao.com/2017/08/11/code-festival-round-1/)
 > * [카카오 코드 페스티벌 본선 이야기](http://tech.kakao.com/2017/09/14/code-festival-round-2/)
 
