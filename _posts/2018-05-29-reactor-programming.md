@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '사용하면서 알게된 Reactor 예제코드로 살펴보기'
+title: '사용하면서 알게 된 Reactor 예제 코드로 살펴보기'
 author: john.stonesoup
 date: 2018-05-29 17:00
 tags: [reactor, functional-programming, reactive-programming]
