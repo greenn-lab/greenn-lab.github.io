@@ -113,6 +113,3 @@ tags: [events]
 
 * 일시: 2011년 11월 25일
 * 장소: 신림동 쉐라톤서울 호텔 디큐브시티
-
----
-문의: [opensource@kakaocorp.com](mailto:opensource@kakaocorp.com)
