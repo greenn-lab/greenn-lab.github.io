@@ -11,7 +11,7 @@ image: /files/covers/employment_cover.png
 
 학력, 전공무관! 웹, 모바일 서비스에 열정이 있다면 누구나 지원 가능한 카카오의 첫 '블라인드 신입 개발자 공채’!
 
-![image](/files/employment.jpg)
+<img src="/files/employment.jpg" class="hcenter">
 
 #### [2018 카카오 블라인드 신입 개발자 공채]
 
