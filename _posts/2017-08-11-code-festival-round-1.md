@@ -17,12 +17,12 @@ image: /files/covers/code-festival-round-1.png
 ## 문제 설명 및 풀이
 
 - [문제 다운로드 (pdf, 0.9MB)](http://t1.kakaocdn.net/codefestival/preliminary.pdf){:target="_blank"}
-- [문제 풀러 가기](https://programmers.co.kr/learn/challenges/competitions?tag=%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%BD%94%EB%93%9C+%EC%98%88%EC%84%A0){:target="_blank"}
 
 ### 카카오프렌즈 컬러링북
 
 - 제출자 1062명
 - 정답자 624명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1829){:target="_blank"}
 
 2차원 배열이 입력으로 주어졌을 때, 상하좌우로 연결된 같은 색깔의 영역이 몇 개인지, 그리고 영역의 최대 크기가 몇인지 구하는 문제입니다. 특정 지점에서부터 시작하여 상하좌우의 칸과 현재 칸의 색깔을 비교하여, 색깔이 같은 인접한 칸이 있을 경우 그 지점에서 같은 과정을 반복하는 식으로 영역의 크기를 구할 수 있습니다. (Flood fill을 검색해보세요.)
 
@@ -32,6 +32,7 @@ image: /files/covers/code-festival-round-1.png
 
 - 제출자 862명
 - 정답자 417명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1832){:target="_blank"}
 
 왼쪽 위부터 오른쪽 아래까지 도달할 수 있는 경우의 수를 세는 문제로, 동적 계획법(Dynamic programming)으로 풀 수 있습니다. 먼저 다음과 같이 두 개의 배열을 정의합니다.
 
@@ -50,6 +51,7 @@ V[i][j]: i행 j열에서 아래쪽으로 갈 수 있는 경우의 수
 
 - 제출자 403명
 - 정답자 44명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1830){:target="_blank"}
 
 문제의 조건에 의해, 삽입되는 기호는 총 26가지(알파벳 소문자의 수)이며 각각은 한 번씩만 적용될 수 있습니다. 즉, 각 알파벳의 개수와 위치를 세면 어떤 단어에 어떤 규칙으로 적용되었는지 알 수 있습니다.
 
@@ -63,6 +65,7 @@ V[i][j]: i행 j열에서 아래쪽으로 갈 수 있는 경우의 수
 
 - 제출자 345명
 - 정답자 108명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1831){:target="_blank"}
 
 규칙에 따라 생성된 문자열은 다음의 성질을 가지고 있습니다.
 
@@ -82,6 +85,7 @@ V[i][j]: i행 j열에서 아래쪽으로 갈 수 있는 경우의 수
 
 - 제출자 385명
 - 정답자 111명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1833){:target="_blank"}
 
 금방 떠올릴 수 있는 해법으로 모든 가능한 쐐기 조합에 대해 문제의 조건(영역 내에 다른 쐐기가 없음)을 만족하는지를 일일이 계산하는 `O(n^3)` 해법이 있습니다만, `n`이 최대 `5,000`이므로 시간 안에 답을 구할 수 없습니다. (그럼에도 일부 참가자 분들은 최적화를 잘 해서 `O(n^3)` 코드로 정답을 받으셨습니다..)
 
@@ -99,6 +103,7 @@ S[i][j]: x좌표가 [0, (x좌표 중 i번째로 작은 값)], y좌표가 [0, (y�
 
 - 제출자 84명
 - 정답자 25명
+- [문제 풀러 가기](https://programmers.co.kr/learn/courses/30/lessons/1834){:target="_blank"}
 
 두 트리의 최대 공통부분을 찾는 문제입니다. 루트가 지정되어 있기 때문에 차례로 내려가면서 두 트리의 자식을 비교하여 노드 간 대응되는 조합을 찾으면 됩니다.
 
