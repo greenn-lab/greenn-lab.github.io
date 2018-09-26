@@ -24,7 +24,9 @@ tags: [events]
 
 > __[행사 후기 및 문제 해설]__
 >
+> * [즐거운 알고리듬 축제, 카카오 코드 페스티벌](https://brunch.co.kr/@andkakao/67)
 > * [카카오 코드 페스티벌 2018 예선전 이야기](http://tech.kakao.com/2018/08/09/code-festival-2018-round-1/)
+> * [카카오 코드 페스티벌 2018 본선 이야기](http://tech.kakao.com/2018/09/12/code-festival-2018-round-2/)
 
 ## [주최] 카카오 Code Festival 2017
 
