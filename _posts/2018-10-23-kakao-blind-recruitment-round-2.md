@@ -161,7 +161,7 @@ Python 이 압도적으로 높은 비율을 보였고 그 뒤를 Java 와 Node �
 
 ## 기타
 
-2차 오프라인 코딩테스트에서 사용한 엘리베이터 시뮬레이션 서버 및 코드는 https://github.com/kakao/2019-blind-2nd-elevator 에서 다운로드 받을 수 있습니다.
+2차 오프라인 코딩테스트에서 사용한 엘리베이터 시뮬레이션 서버 및 코드는 [이 곳](https://github.com/kakao-recruit/2019-blind-2nd-elevator) 에서 다운로드 받을 수 있습니다.
 
 
 ## 마치며
