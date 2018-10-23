@@ -68,7 +68,7 @@ image: /files/covers/kakao-blind-recruitment-2019.jpg
 
 명령에 따른 status 전환을 그림과 표로 표현하면 아래와 같다.
 
-[![State diagram of Car](https://t1.kakaocdn.net/welcome/2019/round2/diagram.jpeg)](https://t1.kakaocdn.net/welcome/2019/round2/diagram.jpeg)
+[![State diagram of Car](https://t1.kakaocdn.net/welcome/2019/round2/diagram.jpeg){:height="70%" width="70%"}](https://t1.kakaocdn.net/welcome/2019/round2/diagram.jpeg)
 
 
 
