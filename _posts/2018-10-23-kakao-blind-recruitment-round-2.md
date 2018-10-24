@@ -170,13 +170,13 @@ Python이 압도적으로 높은 비율을 보였고 그 뒤를 Java와 Node가 
 
 ## 만든 사람들
 
-- 김동주(jude.traveller@kakaocorp.com)
-- 송신형(lucid.s@kakaocorp.com)
-- 안건(kyen.a@kakaocorp.com)
-- 유승원(cree.yoo@kakaocorp.com)
-- 이진환(root.lee@kakaocorp.com)
-- 하광성(jesse.ha@kakaocorp.com)
+- 김동주 jude.traveller@kakaocorp(dot)com
+- 송신형 lucid.s@kakaocorp(dot)com
+- 안건 kyen.a@kakaocorp(dot)com
+- 유승원 cree.yoo@kakaocorp(dot)com
+- 이진환 root.lee@kakaocorp(dot)com
+- 하광성 jesse.ha@kakaocorp(dot)com
 
 ## 문의
 
-- 하광성 (jesse.ha@kakaocorp.com)
+- 하광성 jesse.ha@kakaocorp(dot)com
