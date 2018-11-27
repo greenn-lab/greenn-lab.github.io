@@ -132,5 +132,5 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 ### caution
-Kakao fonts(/assets/fonts/) are fonts for Kakao brands and are not available for other uses.
-> 카카오 폰트(/assets/fonts/)는 카카오 브랜드용 서체로 다른 용도로는 이용할 수 없습니다.
+Kakao fonts(/assets/fonts/) and image(/assets/image/) are only avaiable for Kakao brands.
+> 카카오 폰트(/assets/fonts/)와 이미지(/assets/image/)는 카카오 브랜드용으로 다른 용도로는 이용할 수 없습니다.
