@@ -76,7 +76,8 @@ Readiness Check 가 완료 되면 MinReadySeconds 설정은 무시된다.
 ![](/files/kubernetes-minreadysecond02.png)
 
 
-pod가 종료될때 graceful shudown을 구현하지 못하는 경우도 있을 수 있습니다. 앱이 사용하는 언어나 프레임워크가 지원하지 않는 경우도 있고, 오래된 레거시라서 앱을 수정하지 못한채 컨테이너로 올려야되는 경우도 있을 수 있습니다. 이런 경우에는 prestop hook을 이용할 수 있습니다. kubernetes에서는 pod 라이프사이클중에 hook을 설정할 수 있습니다. pod가 실행되고난 직후 실행하는 poststart hook과 pod가 종료되기 직전 실행되는 prestop hook입니다. prestop 훅은 pod에 SIGTERM을 보내기 전에 실행되기 때문에 prestop을 이용하면 앱과 별개로 graceful shutdown의 효과를 내게 할 수도 있습니다. Prestop 훅의 실행이 완료되기 전까지는 컨테이너에 SIGTERM을 보내지 않기 때문에 앱의 구현과는 별개로 종료되기 전에 대기시간을 주는 것도 가능해 지게 됩니다. 하지만 이렇게 prestop 훅으로 대기시간을 주더라도 terminationGracePeriodSeconds 시간을 초과한다면 프로세스 종료가 일어날 수 있으니 염두에 두고 사용해야 합니다.
+pod가 종료될때 graceful shutdown을 구현하지 못하는 경우도 있을 수 있습니다. 앱이 사용하는 언어나 프레임워크가 지원하지 않는 경우도 있고, 오래된 레거시라서 앱을 수정하지 못한채 컨테이너로 올려야되는 경우도 있을 수 있습니다. 이런 경우에는 prestop hook을 이용할 수 있습니다. kubernetes에서는 pod 라이프사이클중에 hook을 설정할 수 있습니다. pod가 실행되고난 직후 실행하는 poststart hook과 pod가 종료되기 직전 실행되는 prestop hook입니다. prestop 훅은 pod에 SIGTERM을 보내기 전에 실행되기 때문에 prestop을 이용하면 앱과 별개로 graceful shutdown의 효과를 내게 할 수도 있습니다. Prestop 훅의 실행이 완료되기 전까지는 컨테이너에 SIGTERM을 보내지 않기 때문에 앱의 구현과는 별개로 종료되기 전에 대기시간을 주는 것도 가능해 지게 됩니다. 하지만 이렇게 prestop 훅으로 대기시간을 주더라도 terminationGracePeriodSeconds 시간을 초과한다면 프로세스 종료가 일어날 수 있으니 염두에 두고 사용해야 합니다.
 ![](/files/kubernetes-prestop-hook.png)
 
-> 작성자 : heimer.j, hardy.jung
+> 위 내용은 카카오 사내 컨테이너 오케스트레이션 서비스인 DKOS를 운영하던 중 많이 나오는 문의사항을 토대로 배포시 고려해야 할 kubernetes 구조와 옵션 등을 살펴봤습니다.
+> DKOS는 클라우드디플로이셀의 hardy.jung, dennig.hong, scott.vim, heimer.j등이 함께 운영해오고 있습니다.
