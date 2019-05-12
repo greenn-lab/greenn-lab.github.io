@@ -50,8 +50,8 @@ keep_files: [assets, files]
 github: [metadata]
 
 author: greenn.lab@gmail.com
-image: '/b/assets/images/default_cover.jpg'
-asset_url: /b/assets
+image: '/assets/images/default_cover.jpg'
+asset_url: /assets
 
 google_analytics:
   ua: #'UA-72007721-1'
