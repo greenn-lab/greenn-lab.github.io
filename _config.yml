@@ -2,8 +2,8 @@ title: LOVE YOURSELF
 email: greenn.lab@gmail.com
 description: |
   protected Euphoria love(Who me);
-baseurl: ''
-url: 'https://greenn-lab.github.io/b'
+baseurl: '/b'
+url: 'https://greenn-lab.github.io'
 timezone: Asia/Seoul 
 
 #repository: kakao/kakao.github.io
