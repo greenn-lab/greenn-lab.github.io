@@ -3,7 +3,7 @@ email: greenn.lab@gmail.com
 description: |
   protected Euphoria love(Who me);
 baseurl: ''
-url: 'http://greenb.in'
+url: 'https://greenn-lab.github.io/b/'
 timezone: Asia/Seoul 
 
 #repository: kakao/kakao.github.io
@@ -50,17 +50,17 @@ keep_files: [assets, files]
 github: [metadata]
 
 author: greenn.lab@gmail.com
-image: '/assets/images/default_cover.jpg'
-asset_url: /assets
+image: '/b/assets/images/default_cover.jpg'
+asset_url: /b/assets
 
 google_analytics:
-  ua: 'UA-72007721-1'
+  ua: #'UA-72007721-1'
 facebook:
-  app_id: '1204347326263800'
-  username: nkakao
+  app_id: #'1204347326263800'
+  username: #nkakao
 twitter:
-  username: kakaodev
+  username: #kakaodev
 google_plus:
-  username: kakaodev
+  username: #kakaodev
 github_url:
-  username: kakao
+  username: #kakao
