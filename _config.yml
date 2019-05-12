@@ -3,7 +3,7 @@ email: greenn.lab@gmail.com
 description: |
   protected Euphoria love(Who me);
 baseurl: ''
-url: 'https://greenn-lab.github.io/b/'
+url: 'https://greenn-lab.github.io/b'
 timezone: Asia/Seoul 
 
 #repository: kakao/kakao.github.io
