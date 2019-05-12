@@ -3,7 +3,6 @@ layout: default
 ---
 <div id="navbar" class="container">
     <h5><a id="link-back" href="/">Back to Posts</a></h5>
-    {% include share.html page=page %}
 </div>
 
 <div id="cover" class="container"
@@ -23,15 +22,14 @@ layout: default
 <div id="content" class="container post" role="main">
     <div id="post-content">{{ content }}</div>
     <div id="post-footer">
-        {% assign author = site.authors | where: 'name', page.author | first %}
-        <a id="post-author" href="{{ author.url }}">
-            <div id="author-image" style="background-image:url({{ author.image | default: '' }});">
-                <span class="sr-only">{{ author.name }}'s profile image</span>
+        <a id="post-author" href="">
+            <div id="author-image" style="background-image:url(/assets/images/profile.png)">
+                <span class="sr-only">profile image</span>
             </div>
-            <p id="author-name">{{ author.name }}</p>
+            <p id="author-name">greenb</p>
         </a>
         <p id="post-date">{{ page.date | date: '%Y-%m-%d %H:%M' }}</p>
-        <a id="post-more" href="{{ author.url }}">
+        <a id="post-more" href="">
             <span>Read more posts by this author</span>
         </a>
     </div>
