@@ -1,24 +1,6 @@
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no"/>
-{% if page.layout == 'post' or page.layout == 'page' %}
-{% assign meta_title = page.title %}
-{% assign meta_author = page.author | default: site.author %}
-{% assign meta_description = page.excerpt | strip_html | truncatewords: 75 %}
-{% assign meta_url = site.url | append: site.baseurl | append: page.url %}
-{% assign meta_image = page.image | default: site.image %}
-{% assign meta_type = 'article' %}
-{% else %}
-{% assign meta_title = site.title %}
-{% assign meta_author = site.author %}
-{% assign meta_description = site.description | strip_html %}
-{% assign meta_url = site.url %}
-{% assign meta_image = site.image %}
-{% assign meta_type = 'website' %}
-{% endif %}
-{% unless meta_image contains '://' %}
-{% assign meta_image = meta_image | prepend: site.url %}
-{% endunless %}
 <title>{{ meta_title }}</title>
 <meta name="title" content="{{ meta_title }}" />
 <meta name="author" content="{{ meta_author }}"/>
@@ -32,15 +14,7 @@
 <meta property="og:description" content="{{ meta_description }}"/>
 <meta property="og:url" content="{{ meta_url }}"/>
 <meta property="og:image" content="{{ meta_image }}"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{{ meta_title }}"/>
-<meta name="twitter:description" content="{{ meta_description }}"/>
-<meta name="twitter:label1" content="Written by"/>
-<meta name="twitter:data1" content="{{ meta_author }}"/>
-<meta name="twitter:image:src" content="{{ meta_image }}"/>
 {% if page.tags %}
-<meta name="twitter:label2" content="Filed under"/>
-<meta name="twitter:data2" content="{{ page.tags | join: ','}}"/>
 {% for tag in page.tags %}
 <meta property="article:tag" content="{{ tag }}"/>
 {% endfor %}
