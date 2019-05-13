@@ -13,6 +13,7 @@
 
     <ul id="menu" class="nav">
         <li class="{% if page.url != '/develop/' %} active {% endif %}"><a href="{{ base_path }}/">DEVELOP</a></li>
+        <li class="{% if page.url == '/snippet/' %} active {% endif %}"><a href=".">CHEAT</a></li>
         <li class="{% if page.url == '/algorithm/' %} active {% endif %}"><a href=".">ALGORITHM</a></li>
         <li class="{% if page.url == '/write/' %} active {% endif %}"><a href=".">WRITE</a></li>
     </ul>

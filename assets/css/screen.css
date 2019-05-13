@@ -19,7 +19,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 400;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 700;
     color: #1e1e1e;
 }
 
@@ -41,7 +42,7 @@ code.highlighter-rouge {
 }
 
 b, strong, optgroup {
-    font-weight: 400;
+    font-weight: 700;
 }
 
 a, a:link, a:visited, a:active, a:hover {
@@ -567,8 +568,8 @@ for small screen(<720px):
 #post-list .post-title,
 #post-list .post-excerpt,
 #post-list .post-tags {
-    margin: 0 160px 0 0; /* 160px = 60(spacing from .post-author) + 140(.post-author width) - 40(padding-left) */
-    max-width: 620px;
+    margin: 0 0 0 0; /* 160px = 60(spacing from .post-author) + 140(.post-author width) - 40(padding-left) */
+    max-width: 100%;
 }
 
 #post-list .post-title {
@@ -843,36 +844,36 @@ body.tag-template #navbar {
 }
 
 #post-content h1 {
-    margin: 70px 0 30px 0;
+    margin: 3rem 0 0;
     font-size: 26px;
 }
 
 /* @@iolo */
 #post-content h2 {
-    margin: 50px 0 30px 0;
+    margin: 2.5rem 0 0;
     font-size: 22px;
 }
 
 #post-content h3 {
-    margin: 40px 0 30px 0;
+    margin: 2rem 0 0;
     font-size: 18px;
 }
 
 /* @@iolo */
 #post-content h4 {
-    margin: 36px 0 30px 0;
+    margin: 1rem 0 0;
     font-size: 17px;
 }
 
 /* @@iolo */
 #post-content h5 {
-    margin: 34px 0 30px 0;
+    margin: 1rem 0 0;
     font-size: 16px;
 }
 
 /* @@iolo */
 #post-content h6 {
-    margin: 32px 0 30px 0;
+    margin: 1rem 0 1rem 0;
     font-size: 15px;
 }
 
@@ -903,9 +904,9 @@ body.tag-template #navbar {
 }
 
 #post-content pre {
-    margin: 28px 0;
+    margin: 1rem 0;
     /*background: #f4f4f4;*/
-    border: 1px solid #d4d4d4;
+    /* border: 1px solid #d4d4d4; */
     width: 100%;
     padding: 10px;
     font-size: 0.9em;

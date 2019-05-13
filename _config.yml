@@ -8,7 +8,7 @@ timezone: Asia/Seoul
 
 #repository: kakao/kakao.github.io
 
-permalink: /:year/:month/:day/:title/
+permalink: /posts/:year-:month-:day/:title/
 
 excerpt_separator: <!--more-->
 
@@ -46,7 +46,7 @@ defaults:
 
 exclude: [README.md, Gemfile, Gemfile.lock]
 
-keep_files: [assets, files]
+keep_files: [assets, files, snippets]
 github: [metadata]
 
 author: greenn.lab@gmail.com
@@ -56,8 +56,8 @@ asset_url: /assets
 google_analytics:
   ua: #'UA-72007721-1'
 facebook:
-  app_id: #'1204347326263800'
-  username: #nkakao
+  app_id: '2387944488116810'
+  username: ''
 twitter:
   username: #kakaodev
 google_plus:
