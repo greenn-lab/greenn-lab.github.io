@@ -1,0 +1,13 @@
+body {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.container {
+  max-width: 960px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.post-item .post-excerpt {
+  margin-left: 0;
+}

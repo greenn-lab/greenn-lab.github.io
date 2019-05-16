@@ -1,0 +1,172 @@
+@import url(core.css);
+@import url(monokai.css);
+@import url(monokai.append.css);
+
+.container {
+  background-color: #fff;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+
+.container.cover {
+  background-image: url(../images/develop_cover.jpg);
+  background-size: 100%;
+  min-height: 7rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  position: relative;
+}
+.container .cover__home {
+  color: #fff;
+  min-height: 10em;
+  text-align: center;
+  text-shadow: 0 0 10px #000;
+}
+
+.container.cover > h1 {
+  color: #fff;
+  line-height: 2.4rem;
+  margin: 1rem 0.5rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.container.cover > .tags {
+  display: none;
+}
+
+.container.cover > .search {
+  bottom: 1rem;
+  overflow: hidden;
+  position: absolute;
+  right: 1rem;
+}
+.container.cover > .search > input {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABzElEQVQ4jaXUPWtVQRAG4GcPIYQQglhcLIKIX1hISCnWwUL8AdpYWFlGsFBIY21poY1gwH8gYpWIpVamMTZyISBK4meiiYnmrsXONYdzP1CcZTlnz86+Z2bedzZlWdOS1MJhHECFDaxiLcu/eg7ULdcGxnERT9DGNnbwFou4jols8KiDTeE+viLH3InZXW/jEU4PAkxZlqRx3MGVCPw9lrCMDk7gHI7E/hIuZXmtb8qRZjeyN5jFZKMUZ/E0fPZwA1VPymhFzTLeYXZgfUqE7fBdwfGmTxVsnqql8mIIh6t4GO8tzDQdKhzEIexiOcsbg9Cy3MFzbGFSIbIHsP7sDImua52YFUb6AX7DJ4ziWDDe15JU4aRC0hZ6WY6wF+0zfGYIKS1FSl3fmX4sjygdsB2Oi/GTquZUBdhdRTIZCxjt2ylKgR/b74g2buECzmMuItur+cxjfFjrTeNZ49B3bDa+dec6rmJsEGA3rXlFtB/xM8A2o2YLsb8eoJsR/R/Q1Ly+gsmjiminosYf8BKvYn0ZtzGBL7iJB1n+MYDP4UOR2Bw+22/D6Sz3CvNvLMu7SbqnaPEaXiuXcG/K/2JJGlOEvoHVLHf+C7Cf/Qb8jiw6neV9AAAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+  border: 0;
+  border-radius: 15px;
+  color: #505050;
+  height: 30px;
+  padding: 0 15px 0 25px;
+  transition: background-color, padding, width 0.3s;
+  width: 0;
+}
+.container.cover > .search > input:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+  padding-left: 35px;
+  width: 10rem;
+}
+
+.post-info {
+  border-top: 1px solid #ddd;
+  font-size: 0.8rem;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  text-align: right;
+}
+.post-list .tag,
+.post-info .tag {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border-radius: 0.5rem;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0 7px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+.post-info .tag:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.post-links {
+  display: block;
+  margin: 3rem 0;
+}
+.post-links > .links {
+  background-size: 25px !important;
+  display: block;
+  flex: 1;
+  font-size: 1.2rem;
+}
+.post-links > .links::before {
+  color: #aaa;
+  font-size: 1rem;
+}
+.post-links > .links::after {
+  color: #aaa;
+  content: '\201d';
+  font-size: 1rem;
+}
+.post-links > .links__prev {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABHklEQVRYhe3YsW3CUBDG8f9FLjJA6ogqYoJQZgFqxABImSEDMAMNfaoMwBiZAKVCbIAUhUtDCkcIc7679yj8PbmxdJ9+fi5sPVGUW85dbUBXBqA3A1CQRpB3QbaCjM0FmriABvgA9HTtgSdTR0Hc37WqDryA2wKPVYGRuHBgNC4UmIELA2bhQoCZODewAzfy4lzAErjewAu4r0hcL2BJnBlYGtcHuDyD22XhFDX/bn0Cx3/3HoBnY8/1MW85LIAf2rv4Dcyqv+IayP6DhZC+4QJIf0EyMuYpE5EhwExkGDALGQrMQIYDo5EpwA7k1NKTdvSh6Bp4pf3tboAXa1Hqor2TG+DeMi+nktQIMgcmwJuiB9NsCaAnw/mgNwPQm19K7D5y/SYxZQAAAABJRU5ErkJggg==)
+    no-repeat 0 3px;
+  padding-left: 2rem;
+}
+.post-links > .links__prev::before {
+  content: '이전에 다뤘던 주제는' '\201c';
+}
+.post-links > .links__next {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABFUlEQVRYhe3YPw5BQRDH8e+IOIOoxBHUKrWzcAyFihO4gsoxVApRiVOoRoHEv4R5OzNE/DavnNnPTvHey4qifHNqnwa8yh9Ymt8DCtIRZCvIQpBGBOomalhAG9gDen6WQMPSw7qswMkVLgVpBTaBTSbSXpCMrFaUiKxemIQsK4ZWNLK8wQm5jUI6nDEW6QKMRLoBo5CuwAikO9AbGQK8Qu6eIKeWPpH/g11OL/P7rExdgqY3AA48Tm9o7vXNOHegN84VGIFzA0bhXICRuGJgNK4ImIGrDMzCVQJm4sxAoJ+JU+zf4h5wf90xUnRm7PN+jBOsAwsSJndZct747QhSB8bAWtG577ie7GcFZuf37gez8weW5ggHczx9YVr7/wAAAABJRU5ErkJggg==)
+    no-repeat 100% 3px;
+  padding-right: 2rem;
+  text-align: right;
+}
+.post-links > .links__next::before {
+  content: '다음에 다루는 주제는' '\201c';
+}
+
+.post-list,
+.post-list p {
+  margin: 1rem 0;
+  padding: 0;
+}
+.post-item {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.post-item .post-title {
+  font-size: 1.8rem;
+  line-height: 2rem;
+  margin: 0 0 1rem;
+}
+.post-item .post-tags {
+  margin: 0;
+}
+.post-tags > .tag {
+  background-color: #fff;
+  color: #777;
+}
+.post-item .post-excerpt {
+  border-left: 1px solid #ddd;
+  color: #aaa;
+  padding: 0 1rem 1rem;
+  margin: 0.5rem 0 0 1rem;
+}
+
+
+.container.comments {
+  clear: both;
+  padding-top: 3rem;
+  padding-bottom: 7rem;
+}
+
+blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 0 1rem;
+  padding: 0.5rem;
+  border-left: 2px solid #aacc00;
+}
+blockquote > p {
+  margin: 0;
+}
+
+img {
+  margin: 1rem;
+}

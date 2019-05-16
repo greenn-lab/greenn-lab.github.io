@@ -1,7 +1,7 @@
 title: LOVE YOURSELF
 email: greenn.lab@gmail.com
 description: |
-  protected Euphoria love(Who me);
+  public static Euphoria love(Who me);
 baseurl: ''
 url: 'https://greenn-lab.github.io'
 timezone: Asia/Seoul 
@@ -46,21 +46,12 @@ defaults:
 
 exclude: [README.md, Gemfile, Gemfile.lock]
 
-keep_files: [assets, files, snippets]
+keep_files: [assets, files]
 github: [metadata]
 
-author: greenn.lab@gmail.com
+author: green
 image: '/assets/images/default_cover.jpg'
 asset_url: /assets
 
-google_analytics:
-  ua: #'UA-72007721-1'
 facebook:
   app_id: '2387944488116810'
-  username: ''
-twitter:
-  username: #kakaodev
-google_plus:
-  username: #kakaodev
-github_url:
-  username: #kakao

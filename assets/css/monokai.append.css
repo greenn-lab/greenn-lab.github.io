@@ -1,0 +1,21 @@
+.highlighter-rouge {
+  margin-bottom: 1rem; 
+}
+
+code.highlighter-rouge {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  box-shadow: 1px 1px rgba(0,0,0,0.1);
+  padding: 0 4px;
+}
+
+.highlight {
+  border-radius: 4px;  
+  margin: 0;
+}
+pre.highlight {
+  padding: 0.5rem 1rem;
+}
+.highlight .na {
+  font-weight: 500;
+}

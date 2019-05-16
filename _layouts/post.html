@@ -1,68 +1,51 @@
 ---
 layout: default
 ---
-<div id="navbar" class="container">
-    <h5><a id="link-back" href="/">Back to Posts</a></h5>
-</div>
-
-<div id="cover" class="container"
-     {% if page.image %}style="background-image: url({{ page.image }});"{% endif %}>
-    <div>
-        <h1>{{ page.title }}</h1>
-        <p>
+<div class="container cover">
+    <h1>{{ page.title }}</h1>
+    <div class="tags">
+            {% if page.tags.size > 0 %}
             {% for tag in page.tags %}
-                <a href="{{ site.baseurl }}/tags/{{ tag }}">{{ tag }}</a>
-                {% unless forloop.last %},{% endunless %}
+            <a href="{{site.base_url}}/tags/{{tag}}/" class="tag">{{tag}}</a>
             {% endfor %}
-        </p>
-        {% include cover_link.html cover=page.cover %}
+        {% endif %}
+    </div>
+    <div class="search">
+        <input type="search">
+        <ul class="search-results"></ul>    
     </div>
 </div>
 
-<div id="content" class="container post" role="main">
-    <div id="post-content">{{ content }}</div>
-    <div id="post-footer">
-        <a id="post-author" href="">
-            <div id="author-image"> <!-- style="background-image:url(/assets/images/profile.png)"> -->
-                <span class="sr-only">profile image</span>
-            </div>
-            <p id="author-name">greenb</p>
-        </a>
-        <p id="post-date">{{ page.date | date: '%Y-%m-%d %H:%M' }}</p>
+<div class="container post" role="main">
+    <div class="post-content">{{ content }}</div>
+    <div class="post-info">{{ page.date | date: '%Y년 %m월 %d일 %H시%M분 즈음' }}
+        {% if page.tags.size > 0 %}
+            {% for tag in page.tags %}
+            <a href="{{site.base_url}}/tags/{{tag}}/" class="tag">{{tag}}</a>
+            {% endfor %}
+            에 대해
+        {% endif %}
+        썼어요.
     </div>
-    <div class="post-comments" style="margin:0 80px">
-        <div
-            class="fb-comments" 
-            data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
-            data-width="100%"
-            data-numposts="5">
-        </div>
-    </div>    
+
+    <div class="post-links">
+        {% if page.previous %}
+        <a class="links links__prev" href="{{page.previous.url}}">{{page.previous.title}}</a>
+        {% endif %}
+        {% if page.next %}
+        <a class="links links__next" href="{{page.next.url}}">{{ page.next.title }}</a>
+        {% endif %}
+    </div>   
 </div>
 
-<div id="post-links" class="container">
-    {% assign prev = page.previous %}
-    {% if prev %}
-        <div id="post-prev"
-             {% if prev.image %}style="background-image: url({{ prev.image }});"{% endif %}>
-            <div>
-                <h3><a href="{{ prev.url }}">{{ prev.title }}</a></h3>
-                <p>YOU MIGHT ENJOY</p>
-            </div>
-        </div>
-    {% endif %}
-    {% assign next = page.next %}
-    {% if next %}
-        <div id="post-next"
-             {% if next.image %}style="background-image: url({{ next.image }});"{% endif %}>
-            <div>
-                <h3><a href="{{ next.url }}">{{ next.title }}</a></h3>
-                <p>NEXT POST</p>
-            </div>
-        </div>
-    {% endif %}
-</div>
-
-<div id="lightbox">
-    <div id="lightbox-image"></div>
-</div>
+<div class="container comments">
+    <!-- <div
+        class="fb-comments" 
+        data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+        data-width="100%"
+        data-numposts="5">
+    </div> -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.3&appId=2387944488116810&autoLogAppEvents=1"></script>
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#green:{{page.url}}:comments" data-width="100%" data-order_by="reverse_time"></div>
+</div>    
