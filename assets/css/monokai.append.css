@@ -1,5 +1,5 @@
 .highlighter-rouge {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 code.highlighter-rouge {
@@ -10,11 +10,11 @@ code.highlighter-rouge {
 }
 
 .highlight {
-  border-radius: 4px;  
+  border-radius: 4px;
   margin: 0;
 }
 pre.highlight {
-  padding: 0.5rem 1rem;
+  padding: 1.5em;
 }
 .highlight .na {
   font-weight: 500;

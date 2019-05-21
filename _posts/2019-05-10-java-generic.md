@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'java generic '
+title: 'java generic'
 #permalink: /develop/
 date: 2019-05-10T16:00
 tags: [java, generic]
