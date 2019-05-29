@@ -5,10 +5,8 @@ date: 2019-05-20T21:00
 tags: [java, jpa]
 ---
 
-[김영한님의 자바 ORM 표준 JPA 프로그래밍](http://www.yes24.com/Product/Goods/19040233?scode=032&OzSrank=1) 으로 스터디를 하면서 정리한 내용이었는데, 찾아보기 쉽게 간략화 해봅니다.
-
-> github
-
+[김영한님의 자바 ORM 표준 JPA 프로그래밍](http://www.yes24.com/Product/Goods/19040233?scode=032&OzSrank=1) 으로 스터디를 하면서 정리한 내용이었는데, 찾아보기 쉽게 간략화 해봅니다.  
+[github](https://github.com/greenn-lab/blog-codes-java-jpa-2019-05-20-jpa-inheritance) 에 예제 소스도 올라가 있고요.
 
 # 상속 방식
 
