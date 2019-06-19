@@ -1,27 +1,39 @@
 ---
 layout: post
-title: '구문 형식(Coding Style 또는 Syntax Style) 가이드'
+title: 'MapStruct 를 idea(IntelliJ) 에서 gradle 로 써서 duplicate class 오류가 나면...'
 date: 2019-05-28T21:00
 tags: [programming, convention]
 ---
 
-최근에 `클리코딩` 이나 `디자인패턴` 에 다시 관심을 갖고 있어요.  
-연차가 어느정도 됐지만 제자리 걸음을 하는 것 같다는 느낌에 기본으로 회기하는 마음이 생겨서요.
+이런게 사실, 조금 쓰기 힘든 내용인 것 같아요.  
+개인적인 개발 환경의 문제이거나 제가 실수한 설정의 문제이거나 할까봐서, '이런 기능 오류를 이렇게 해결했다' 라고 올리는게 맞는건가 싶어서요.  
+그래서 아울러 말씀드리면 정답이 아닐 수도 있으니까 공식 참조문서를 찾아 보시고 stackOverflow 같은 곳도 잘 뒤져보시는 걸 우선 추천 드립니다.
 
-여러가지를 접하는 도중에 간과하고 허투로 지나치던 관례중에 **`구문 형식`** 이 중요하단걸 이해 했어요.
+### 증상
+어플리케이션(테스트도 역시) 실행하게 되면 `MapStruct` 에서 generated 된 소스가 `build/generated/sources/annotationProcessor/java` 디렉토리에 .java 파일로 나타나게 되잖아요.  
+결과적으로 그것들이 "duplicate class" 라는 에러의 원인이 되는거죠.
 
-> ["코딩 스타일에 대해 논쟁하는 이유"](http://www.mimul.com:80/pebble/default/addTrackBack.action?entry=1559304696070&token=-8812272824716390057) 라는 번역 글에서 이해를 얻었고, 이 글은 ["Why We Argue: Style"](https://www.sandimetz.com/blog/2017/6/1/why-we-argue-style) 를 번역한 내용이라고 하네요.
+### 해결
+> 다시 한번 말씀드리지만 이건 제가 문제를 해결한 방법이지 정답이 아니라는 거...
 
-## IDEA 에 Java Google Style 적용
+[공식 문서](http://mapstruct.org/documentation/stable/reference/html/#_gradle)에 나온 대로 진행을 하시고 난 후,  
+`build.gradle` 에서
 
-1. [github 구글 styleguide](github.com/google/styleguide) 에서
-2. [intellij-java-google-style.xml](https://raw.githubusercontent.com/google/styleguide/gh-pages/intellij-java-google-style.xml) 파일 다운로드하고
-3. Preference > Editor > Code Style  
-   ![](/files/20190528/intellij_preferences.png)
-4. "Import Scheme" 으로 1에서 다운로드한 파일 선택
+```groovy
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.defaultComponentModel=spring'
+    ]
 
-## conclusion
+    doLast {
+        delete fileTree('build') {  // 삭제를 하는데, build 디렉토리 중에서
+            include '**/*.java'     // *.java 파일을 삭제
+        }
+    }
+}
+```
 
-개인적으로는 프로젝트 파일로 버전관리를 하거나, 팀원이 공유할 수 있는 위치를 통해서 공동 작업자들이 동시에 활용 할 수 있는 방법을 모색해야만 효과가 있을 것 같네요.
+이렇습니다. 단순히 build 디렉토리에 java 파일을 지우는 걸로 해결 했어요.
 
-구문 형식의 관례를 지켜야하는 이유가 **코딩은 작성보다 읽는데 더 큰 비용이 발생** 한다는 것을 다시 한번 상기 해봅니다.
+### 마무리
+더 좋은 방법이 있거나, 이 방법이 문제가 될 소지가 있다면 피드백 주시면 좋겠습니다.  
