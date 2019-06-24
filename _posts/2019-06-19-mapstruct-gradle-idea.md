@@ -2,7 +2,7 @@
 layout: post
 title: 'MapStruct 를 idea(IntelliJ) 에서 gradle 로 써서 duplicate class 오류가 나면...'
 date: 2019-05-28T21:00
-tags: [programming, convention]
+tags: [DTO, MapStruct]
 ---
 
 이런게 사실, 조금 쓰기 힘든 내용인 것 같아요.  
