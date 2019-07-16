@@ -14,7 +14,7 @@ tags: [WebAPI, javascript]
 ### 활용
 [`Element.getBoundingClientRect()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) 이 녀석 입니다. 실무에서는 고객대응 때문에 아직도 IE10 을 고려해야하는데, 이 API는 IE9 부터 사용가능하다고 하네요. (그토록 오랫동안 모르고 있었다니...)
 
-[](/files/20190716/scr.png)
+![](/files/20190716/scr.png)
 
 실무에서 사용하는 IE10 에서 사용해 보았습니다.
 
