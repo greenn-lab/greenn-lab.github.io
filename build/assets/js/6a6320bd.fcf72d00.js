@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[5946],{724:function(s){s.exports=JSON.parse('{"label":"MapStruct","permalink":"/blog/tags/map-struct","allTagsPath":"/blog/tags","count":1}')}}]);
