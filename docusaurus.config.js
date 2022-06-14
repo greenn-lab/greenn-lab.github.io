@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Miscellaneous',
   tagline: 'all of things mishmash',
-  url: 'https://greenn-lab.github.io',
+  url: 'https://greenn-lab.github.com',
   baseUrl: '/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
