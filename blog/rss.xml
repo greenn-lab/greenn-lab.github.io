@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Miscellaneous Blog</title>
+        <link>https://greenn-lab.github.com/blog</link>
+        <description>Miscellaneous Blog</description>
+        <lastBuildDate>Tue, 14 Jun 2022 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>ko</language>
+        <item>
+            <title><![CDATA[Reboot!]]></title>
+            <link>https://greenn-lab.github.com/blog/reboot</link>
+            <guid>reboot</guid>
+            <pubDate>Tue, 14 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[뭔가 다시 열심히 시작해 봅니당!]]></description>
+            <content:encoded><![CDATA[<p>뭔가 다시 열심히 시작해 봅니당!</p><p>::: danger
+망함.<br>
+<!-- -->이전 포스팅도 별건 없었지만... 깃헙 SSH 문제로 이리저리 돌리다가 날려먹었네요.<br>
+<!-- -->그저 웃지요~ 🤤
+:::</p><p><img loading="lazy" alt="reboot" src="/assets/images/mishmash-3495874c4ad9577a39798f5271614cf5.jpeg" width="1080" height="1278" class="img_ev3q"></p>]]></content:encoded>
+            <category>hello</category>
+            <category>docusaurus</category>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://greenn-lab.github.com/blog</id>
+    <title>Miscellaneous Blog</title>
+    <updated>2022-06-14T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://greenn-lab.github.com/blog"/>
+    <subtitle>Miscellaneous Blog</subtitle>
+    <icon>https://greenn-lab.github.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Reboot!]]></title>
+        <id>reboot</id>
+        <link href="https://greenn-lab.github.com/blog/reboot"/>
+        <updated>2022-06-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[뭔가 다시 열심히 시작해 봅니당!]]></summary>
+        <content type="html"><![CDATA[<p>뭔가 다시 열심히 시작해 봅니당!</p><p>::: danger
+망함.<br>
+<!-- -->이전 포스팅도 별건 없었지만... 깃헙 SSH 문제로 이리저리 돌리다가 날려먹었네요.<br>
+<!-- -->그저 웃지요~ 🤤
+:::</p><p><img loading="lazy" alt="reboot" src="/assets/images/mishmash-3495874c4ad9577a39798f5271614cf5.jpeg" width="1080" height="1278" class="img_ev3q"></p>]]></content>
+        <author>
+            <name>Green</name>
+            <uri>https://github.com/greenn-lab</uri>
+        </author>
+        <category label="hello" term="hello"/>
+        <category label="docusaurus" term="docusaurus"/>
+    </entry>
+</feed>
