@@ -120,7 +120,7 @@ const config = {
           },
         ],
         */
-        copyright: `© ${new Date().getFullYear()} Green. Built with Docusaurus.`,
+        copyright: `© ${new Date().getFullYear()} Green.`,
       },
       prism: {
         theme: lightCodeTheme,
