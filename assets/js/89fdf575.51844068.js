@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[1975],{7477:a=>{a.exports=JSON.parse('{"label":"gitlab","permalink":"/blog/tags/gitlab","allTagsPath":"/blog/tags","count":1}')}}]);
