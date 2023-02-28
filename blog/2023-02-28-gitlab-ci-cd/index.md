@@ -1,7 +1,7 @@
 ---
 title: 'Using gitlab CI/CD (gitlab-runner)'
 authors: [green]
-tags: ['gitlab', 'ci/cd', 'git]
+tags: ['gitlab', 'ci/cd', 'git']
 ---
 gitlab 에서 CI/CD 를 진행 할 수 있는 방법을 정리 해봐요.
 
